@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>交换变量值</title>
+    <script>
+      // 编程语言-需要逻辑
+      // 需求一个临时变量
+      //1.先把apple1放桌子
+      //2.把apple2值给apple1
+      //3.把桌子上值给apple2
+
+      var temp; //临时变量为空
+      var apple1 = "青苹果";
+      var apple2 = "红苹果";
+      temp = apple1; //右边给左边
+      apple1 = apple2;
+      apple2 = temp;
+      console.log(apple1);
+      console.log(apple2);
+    </script>
+  </head>
+  <body></body>
+</html>
