@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>length+数据拼接</title>
+    <script>
+      // 1.字符串长度
+      var str = "my name"; //空格也算是一个字符
+      console.log(str.length); //7  :直接输出字符串长度数值
+      // 2.数据拼接
+      console.log("你是" + "最棒的"); //你是最棒的
+      console.log("你是" + 18); //你是18  不是计算效果
+      console.log("你是" + true); //你是true
+      console.log("12" + "12"); //1212
+
+      //   多数据拼接
+      var age = 18;
+      // 口诀：引引加加
+      // console.log(""+"");
+      console.log("我" + age + "岁"); //我18岁
+    </script>
+  </head>
+  <body></body>
+</html>

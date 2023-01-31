@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>数字类型</title>
+    <script>
+      // 数字类型：二进制 八进制 十进制 十六进制
+      var num = 10; //num数字型
+      var PI = 3.14; //PI数字型
+      var num1 = 010; //八进制
+      //1.八进制 010 十进制=8 数字前面加0就是八进制
+      console.log(typeof PI);
+      var num2 = 012;
+      console.log(num2);
+      //   2.十六进制:0~9 a~f  #ffffff 数字前面加0x 表示十六进制
+      var num3 = 0x9; //9
+
+      //   3.最值：内置对象
+      alert(Number.MAX_VALUE); //1.7976931348623157+308
+      alert(Number.MIN_VALUE); //5E-324
+
+      //   4.无穷值
+      alert(Number.MAX_VALUE * 2); //infinity正无穷
+      alert(-Number.MAX_VALUE * 2); //-infinity负无穷
+
+      //   5.非数值
+      //多个数据类新内阁使用时候只有加号是拼接
+      // 字符串和数值使用- * /连接时候代表着进行计算：所控制显示结果是NaN
+      console.log("哈哈" - 5); //NaN(非数值类型)
+    </script>
+  </head>
+  <body></body>
+</html>

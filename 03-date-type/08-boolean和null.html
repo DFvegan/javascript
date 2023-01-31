@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>布尔值和null</title>
+    <script>
+      // 布尔值
+      var flag = true; //变量值true
+      var flag1 = false; //变量值false
+      console.log(flag - 1); //true：加减法运算当作1
+      console.log(flag1 + 1); //false：加减法法运算当作0
+
+      //   如果变量声名未赋值就是undefind未定义数据类型
+      var str;
+      console.log(str); //undefined
+      var variable = undefined;
+      // 如果字符串和数值进行连接时候就会认为是字符串拼接效果而不是计算效果
+      console.log(variable + "haha"); //字符串
+      // 未定义拼接数值也是非数值类型
+      console.log(variable + 1); //NaN
+
+      //NULL空值
+      var space = null;
+      console.log(null + "哈哈"); //字符串直接拼接
+      console.log(null + 18); //18
+    </script>
+  </head>
+  <body></body>
+</html>
