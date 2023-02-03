@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // continue：跳过本次循环结果
+      for (var i = 1; i <= 5; i++) {
+        if (i == 3) {
+          //只要遇见continue直接跳出本次循环跳到i=条件++上
+          continue;
+        }
+        console.log("我正再吃第" + i + "个包子");
+      }
+
+      // 求出1-100能把7整除的数之和
+      var sum = 0;
+      for (var j = 1; j <= 100; j++) {
+        if (j % 7 == 0) {
+          continue;
+        }
+        sum += j;
+      }
+      console.log(sum);
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // 学生总人数
+      var num = prompt("请输入学生人数");
+      // 学生成绩总和
+      var sum = 0;
+      // 学生平均成绩
+      var average = 0;
+
+      for (var i = 1; i <= num; i++) {
+        // 输入每一名学生成绩
+        var score = prompt("第" + i + "名学成绩");
+        // 求出所有学生成绩总数
+        sum = sum + parseInt(score);
+      }
+      average = sum / num;
+      console.log(num);
+      console.log(sum);
+      console.log(average);
+    </script>
+  </head>
+  <body></body>
+</html>

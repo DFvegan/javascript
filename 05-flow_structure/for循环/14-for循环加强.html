@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //1.求1~100之间的所有书平均值
+      var sum = 0;
+      for (var i = 0; i <= 100; i++) {
+        sum = sum + i;
+      }
+      // 求累加和治好后再进求平均数
+      average = sum / 100;
+      console.log(average);
+
+      //2.求1~100之间所有偶数和奇数的和
+      var even = 0;
+      var odd = 0;
+      for (var i = 1; i <= 100; i++) {
+        if (i % 2 == 0) {
+          //被二整除就是偶数
+          even = even + i;
+        } else {
+          // 否则就是奇数
+          odd = odd + i;
+        }
+      }
+      console.log("所有的偶数和是：" + even);
+      console.log("所有的奇数和是：" + odd);
+
+      //3.求1~100之间所有能被3整除的数
+      var result = 0;
+      for (var i = 1; i <= 100; i++) {
+        if (i % 3 == 0) {
+          result = result + i;
+        }
+      }
+      console.log(result); //1683
+
+      // 4.练习能被4整除的数求和（1-100以内）
+      var soall = 0;
+      for (var i = 0; i <= 100; i++) {
+        if (i % 4 == 0) {
+          soall = soall + i;
+        }
+      }
+      console.log(soall);
+    </script>
+  </head>
+  <body></body>
+</html>

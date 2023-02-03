@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //   while (条件表达式) {
+      //       循环体；
+      //   }
+
+      // 循环一百句
+      // 定义循环初始变量
+      var num = 1;
+      while (num <= 100) {
+        console.log("你好");
+        // 计数器
+        num++;
+      }
+
+      //   1-100整数和
+      var sum = 0;
+      var j = 1;
+      while (j <= 100) {
+        // 每循环一句那么sum的值就进行一次变化
+        sum += j;
+        j++;
+      }
+      console.log(sum);
+
+      //输出提示框：你爱我吗？ 输入我爱你结束循环；否则循环一百遍
+      var result = prompt("你爱我？");
+      while (result !== "我爱你") {
+        prompt("你爱我?");
+      }
+      alert("我也爱你");
+    </script>
+  </head>
+  <body></body>
+</html>

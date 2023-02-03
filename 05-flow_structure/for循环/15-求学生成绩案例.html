@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // 1.班级总人数输入
+
+      // 2.根据输入人数弹出输入成绩
+      //       1.第一个学生成绩输入
+      //       2.第二个学生成绩输入
+      //       3.第三个学生成绩输入
+
+      //   4.求出总成绩、再求平均成绩
+
+      //   num是学生总人数
+      var num = prompt("请输入班级总人数");
+      // sum是求和总数变量
+      var sum = 0;
+      // average平均数变量
+      var average = 0;
+      // 变量应该从1开始
+      for (var i = 1; i <= num; i++) {
+        // scare是每一个学生成绩的变量
+        var score = prompt("请输入第" + i + "名学生成绩");
+        //依次输入每个同学成绩再进行直接转换
+        // 求完成及之后再进行数据类型转换
+        sum = sum + parseFloat(score);
+      }
+
+      // 求平均数
+      average = sum / num;
+      //   注意字符串转成数值
+      alert("总成绩是：" + sum);
+      alert("平均成绩是：" + average);
+    </script>
+  </head>
+  <body></body>
+</html>
