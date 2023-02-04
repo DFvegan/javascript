@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>新增元素案例</title>
+    <script>
+      // 使用循环进行追加数组
+      //   声明一个空数组
+      //循环中的计数器i可作为数组元素存入
+      //   由于数组的索引号是从0开始，因此计数器从零开始更合适，存入的数组元素要+1
+      var arr = [];
+      for (var i = 0; i < 100; i++) {
+        // arr = i;不要给数组名直接赋值
+        arr[i] = i + 1;
+      }
+      console.log(arr);
+    </script>
+  </head>
+  <body></body>
+</html>

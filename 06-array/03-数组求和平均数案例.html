@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // 分析：
+      /*
+      1.声明一个求和变量sum
+      2.遍历数组，把里面的数组元素加到sum里面
+      3.用求和变量sum除以数组长度就可以得到数组的平均值 */
+
+      var arr = [2, 6, 1, 7, 4];
+      var sum = 0;
+      var average = 0;
+      for (var i = 0; i < arr.length; i++) {
+        //注意数组长度少于数组下标的数值
+        sum += arr[i]; //注意数组元素arr[i] 不是计数器
+      }
+      average = sum / arr.length;
+      console.log(sum, average);
+    </script>
+  </head>
+  <body></body>
+</html>

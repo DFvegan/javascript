@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // 交换变量
+      var num1 = 1;
+      var num2 = 2;
+      // 设置第三数组变量
+      var tep;
+      //   change
+      tep = num1;
+      num1 = num2;
+      num2 = tep;
+      console.log(num1, num2);
+
+      //   冒泡排序方式
+      //   var arr = [5, 4, 3, 2, 1];
+      var arr = [1, 2, 3, 4, 5];
+      //外层循环管趟数:趟数比数组元素少一个
+      for (var i = 0; i <= arr.length - 1; i++) {
+        for (var j = 0; j <= arr.length - i - 1; j++) {
+          // 里层循环管每趟次数：次数是总次数-趟数-1
+          if (arr[j] < arr[j + 1]) {
+            var temp = arr[j];
+            arr[j] = arr[j + 1];
+            arr[j + 1] = temp;
+          }
+          // 第一轮：2，3，4，5，1
+          // 第二轮：3，4，5，1，2
+          // .。。
+        }
+      }
+      console.log(arr);
+    </script>
+  </head>
+  <body></body>
+</html>

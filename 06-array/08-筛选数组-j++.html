@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>筛选数组</title>
+    <script>
+      // 第一种方式：通过新数组j++
+      // 把数组[2,0,6,1,77,0,52,0,25,7]中大于10的数组元素选出来，放入新的数组
+      /*  1. 声名一个新数组，存放数据newArr
+            2. 遍历旧数组，找出大于10的元素
+            3. 把找出来的大于10的数组一次追加给newArr */
+      var arr = [2, 0, 6, 1, 77, 0, 52, 0, 25, 7];
+      var newArr = [];
+      var j = 0;
+      for (var i = 0; i < arr.length; i++) {
+        if (arr[i] > 10) {
+          //新数组索引号从0开始依次递增
+          newArr[j] = arr[i];
+          j++;
+        }
+      }
+      console.log(newArr);
+    </script>
+  </head>
+  <body></body>
+</html>
