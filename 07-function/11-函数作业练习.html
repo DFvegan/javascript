@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>榨汁机看函数</title>
+    <script>
+      // 1.计算器运算功能
+      /*  function setNew(num1, num2) {
+        var num1 = parseInt(prompt("请输入第一个数据"));
+        var num2 = parseInt(prompt("请输入第二个数据"));
+        var str = num1 + num2;
+        return str;
+      }
+
+      var result = setNew();
+      alert(result); */
+
+      //输入三个数值获得最大值，并能弹出运算后的结果
+      function getMax(num1, num2, num3) {
+        var num1 = parseInt(prompt("请输入你的数据"));
+        var num2 = parseInt(prompt("请输入你的数据"));
+        var num3 = parseInt(prompt("请输入你的数据"));
+        if (num1 > num2) {
+          return num1;
+        } else if (num2 > num3) {
+          return num2;
+        } else {
+          return num3;
+        }
+      }
+      alert(getMax());
+    </script>
+  </head>
+  <body></body>
+</html>

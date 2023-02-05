@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //1.return终制函数
+      function getSum(num1, num2) {
+        return num1 + num2;
+
+        //return之后的语句不执行
+
+        alert("我是不会被执行的");
+      }
+      console.log(getSum(1, 2));
+
+      //
+
+      //2.return只能返回最后一个值
+      function fn(num1, num2) {
+        return num1, num2;
+      }
+
+      console.log(fn(1, 2)); //2
+
+      //
+
+      //3.数组求任意两个数加减结果
+      function getResult(num1, num2) {
+        return [num1 + num2, num2 - num1];
+      }
+      console.log(getResult(1, 2));
+
+      // 4.我们如果有return返回的是return
+      // 如果函数没有return返回的是undefined
+      function fun1() {
+        return 666;
+      }
+      console.log(fun1());
+      //返回return值
+      function fun2() {
+        //没有返回值
+      }
+      console.log(fun2());
+    </script>
+  </head>
+  <body></body>
+</html>

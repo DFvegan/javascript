@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=4, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //0-50的累加和
+      var sum = 0;
+      for (var i = 0; i <= 50; i++) {
+        sum += i;
+      }
+      console.log(sum);
+
+      //10-50的累加和
+      var temp = 0;
+      for (var i = 10; i <= 50; i++) {
+        temp += i;
+      }
+      console.log(temp);
+
+      //   3.函数方法
+
+      //封装函数
+      function getSum(num1, num2) {
+        var stemp = 0;
+        for (var i = num1; i <= num2; i++) {
+          stemp += i;
+        }
+        console.log(stemp);
+      }
+      //调用函数：函数名（实参）
+      getSum(0, 50);
+      getSum(10, 50);
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //1.求输入两个数的和
+      function getSum(num1, num2) {
+        // 转换为数值数据类型
+        num1 = parseInt(prompt("数据一"));
+        num2 = parseInt(prompt("数据二"));
+
+        console.log(num1 + num2);
+      }
+      getSum();
+      //2.任意两个数之间数据累加求和
+      function getSums(start, end) {
+        var sums = 0;
+        for (var i = start; i <= end; i++) {
+          sums += i;
+        }
+        // 求和
+        console.log(sums);
+      }
+      // 此处使用任意两个数
+      getSums(1, 100);
+      getSums(3, 20);
+    </script>
+  </head>
+  <body></body>
+</html>

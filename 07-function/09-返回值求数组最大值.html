@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function getArrMax(arr) {
+        var max = arr[0];
+        for (var i = 1; i <= arr.length; i++) {
+          if (arr[i] > max) {
+            max = arr[i];
+          }
+        }
+        return max;
+      }
+
+      //   getArrMax([5, 2, 99, 101, 67, 77]);
+      //实际开发中经常使用变量进行操作
+      // 调用函数添加实参
+      var re = getArrMax([5, 2, 99, 101, 67, 77]);
+      var rel = getArrMax([5, 2, 99, 101, 105, 33]);
+      console.log(re);
+      console.log(rel);
+    </script>
+  </head>
+  <body></body>
+</html>
