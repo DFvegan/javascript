@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //1.利用自面量
+      //   {}里面包含了表达这个具体事物的属性和方法
+      //（1）属性或者方法创建方法键值对形式
+      //（2）里面的多种属性用逗号隔开
+      //（3）方法后面 跟的是一个匿名函数
+
+      var obj = {
+        uname: "张三丰",
+        age: "18",
+        sex: "男",
+        sayHi: function () {
+          console.log("嗨");
+        },
+      };
+      //（4）调用对象属性
+      //对象名.属性名
+      //小点‘.’理解为的
+      //对象名['属性名']
+      console.log(obj.uname);
+      console.log(obj["age"]);
+      //（5）调用对象方法
+      //对象名.方法名()
+      obj.sayHi();
+
+      /* ------------------------- */
+      //2.利用new Object创建
+      var obj = newObj(); //创建一个空的对象
+      obj.uname = "张三丰";
+      obj.age = "18";
+      obj.sex = "男";
+      // 匿名函数
+      obj.sayHi = function () {
+        console.log("hi~~");
+      };
+      //利用等号赋值的方法添加属性和方法
+      //每个属性和方法之间用分号结束
+
+      /* ------------------------- */
+      //3.利用构造函数创建对象
+      //就是因为前面两种创建对象方式一次只能创建一个对象
+      var firstDh = {
+        uname: "刘德华",
+        age: 55,
+        sing: function () {
+          console.log("冰雨");
+        },
+      };
+      var secondDh = {
+        uname: "张学友",
+        age: 58,
+        sing: function () {
+          console.log("李香兰");
+        },
+      };
+
+      // 因为一次创建一个对象，很多属性和方法大量相同
+      // 因此可以利用函数方法重复这些相同代码
+      // 就把这个函数称为构造函数
+      // 因为这个函数里面封装的不是普通代码，而是函数
+      // 构造函数就是把对象里面相同的属性和方法抽象出来到封装到函数里面
+
+      //创建四大天王构造函数创建对象
+      //相同属性：名字、年龄、性别、方法：唱歌
+      function 构造函数名() {
+        this.属性 = 值;
+        this.方法 = function () {};
+      }
+      new 构造函数名();
+
+      //1.构造函数首字母大写
+      //2.构造函数创建对象不需要return
+      function Star(uname, age, sex) {
+        this.name = uname;
+        this.age = age;
+        this.sex = sex;
+      }
+      new star("刘德华", 18, "男");
+    </script>
+  </head>
+  <body></body>
+</html>
