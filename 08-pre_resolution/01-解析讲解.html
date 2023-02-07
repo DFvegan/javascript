@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // 1.
+      // console.log(num);//undefined
+
+      // 2.
+      // ：先进性预解析，再进行执行代码
+      // 相当于
+      /* 
+        var num
+        console.log(num);
+        num = 10;
+      */
+      console.log(num); //unfined
+      var num = 10;
+
+      //3.
+      fn(); //正常调用
+      function fn() {
+        console.log(11);
+      }
+      // fn();//可以正常调用
+
+      //4.
+
+      //相当于执行以下代码
+      /* 
+        var fun;
+        fun();
+        fun = function () {
+        console.log(22);
+      };
+       */
+      fun(); //报错匿名函数会先进行预解析：所以fun只是开辟了空间
+      var fun = function () {
+        console.log(22);
+      };
+      // fun();//正常调用
+    </script>
+  </head>
+  <body></body>
+</html>
