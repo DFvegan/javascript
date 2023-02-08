@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // 1.math.random原理
+      console.log(Math.random()); //0~1不等于1的值
+
+      //随即返回1-10整数
+      function getRandom(min, max) {
+        // 向上取整取最大值
+        max = Math.ceil(max);
+        // 向下取整取最小值
+        min = Math.floor(min);
+
+        // 返回：（随机数*最大值-最小值+1）再加上最小值最后向下取整
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      }
+      console.log(getRandom(1, 10)); //两束之间随机取整
+
+      //点名
+      var arr = ["张三", "李四", "王五", "疯子", "傻子"]; //数组索引号从零开始，最小是零，最大是4
+      console.log(arr[getRandom(0, arr.length - 1)]);
+    </script>
+  </head>
+  <body></body>
+</html>
