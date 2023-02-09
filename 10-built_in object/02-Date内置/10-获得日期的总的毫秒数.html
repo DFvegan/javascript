@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>总毫秒数(时间戳)</title>
+    <script>
+      // 基于1970年1月1日起的毫秒数
+      //   不是当前的毫秒数，而是距离1970乃年1月1日过了多少毫秒
+      //   1.通过 valueOf() 和 getTime（）
+      var date = new Date();
+      console.log(date.valueOf());
+      console.log(date.getTime());
+
+      //   2.简单写法:最常用
+      //   里面的可以加参数：
+      //1.如果没有参数：返回当前时间时间戳
+      //2.如果写了时间：就是写的时间的时间戳
+      var date1 = +new Date(); //+new Date：返回的就是毫秒数
+      console.log(date1);
+
+      //   3.更简单:h5新增
+      console.log(Date.now());
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>格式化时分秒</title>
+    <script>
+      //定义一个日期
+      var date = new Date();
+      console.log(date.getHours()); //得到当前小时
+      console.log(date.getMinutes()); //得到当前分钟
+      console.log(date.getSeconds()); //得到当前秒
+
+      // 封装一个函数返当前的时分秒，格式是：08：08：08
+      // 系统是没有：
+      function getTimer() {
+        var time = new Date();
+        var h = time.getHours();
+        h = h < 10 ? "0" + h : h; //先算 右边判断是否小于十，小于就补零
+
+        var m = time.getMinutes();
+        m = m < 10 ? "0" + m : m;
+        var s = time.getSeconds();
+        s = s < 10 ? "0" + s : s;
+
+        return h + ":" + m + ":" + s;
+      }
+      console.log(getTimer());
+    </script>
+  </head>
+  <body></body>
+</html>
