@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>数组索引去重案例</title>
+    <script>
+      // 有一个数组['x','z','a','x','a','x','a','x','c','b',],要求去除数组中的重复元素
+      //   封装一个去重的函数
+      function unique(arr) {
+        var newArr = [];
+        // 遍历旧数组
+        for (var i = 0; i < arr.length; i++) {
+          // 1.查询新数组里有没有旧数组对应元素
+          if (newArr.indexOf(arr[i]) === -1) {
+            //====-1 表示遍历查不到该数组元素
+            // 2.新数组最后添加遍历旧数组后新数组没有的元素
+            newArr.push(arr[i]);
+          }
+        }
+        return newArr;
+      }
+      var demo = unique(["x", "z", "a", "x", "a", "x", "a", "x", "c", "b"]);
+      console.log(demo);
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //检测是否是数组
+      //   1.instanceof: 运算符：检测是否为数组
+      var arr = [];
+      var obj = {};
+      console.log(arr instanceof Array); //是数组返回true
+      console.log(obj instanceof Array); //不是数组返回fasle
+
+      //2.Array.isArray(value)进行判断是否是数组
+      console.log(Array.isArray(arr)); //true
+      console.log(Array.isArray(obj)); //false
+
+      // ----------------------------------------------------
+      //1.运用instanceof
+      // 封装函数：数组位置反转
+      function reverse(arr) {
+        //先判断调用函数的参数是不是数组，如果是数组就进行如下操作
+        // if (arr instanceof Array) {
+        if (Array.isArray(arr)) {
+          //此处arr是还是那个main函数的形参：实参在调用处
+          // 位置反转
+          var newArr = [];
+          for (var i = arr.length - 1; i >= 0; i--) {
+            newArr[newArr.length] = arr[i];
+          }
+          return newArr;
+        } else {
+          return "这个参数必须是数组格式进行操作";
+        }
+      }
+
+      console.log(reverse([3, 2, 1]));
+      //   如果输入不是数组:会返回一个空的数组
+      console.log(reverse(1, 2, 3)); //这个参数必须是数组格式进行操作
+    </script>
+  </head>
+  <body></body>
+</html>
