@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // 1.有一串数组
+      var arr = ["red", "blue", "red", "green", "pink", "red"];
+      //   2.查找第一个red
+      var index = arr.indexOf("red");
+      //   4.循环定义索引出现的次数
+      var num = 0;
+      //   3.while循环 循环条件:能查到就一直循环
+      while (index !== -1) {
+        // 输出出现的索引位置
+        console.log(index);
+        // 索引+1
+        num++;
+        // 5.再缩小索引开始的范围
+        index = arr.indexOf("red", index + 1);
+      }
+
+      //   最后输出
+      console.log("red出现的次数是" + num);
+    </script>
+  </head>
+  <body></body>
+</html>

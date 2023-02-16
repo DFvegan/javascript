@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // 有一个对象
+      var o = {
+        age: 18,
+      };
+      if (o["age"]) {
+        //判断对象里面是不是有age属性
+        console.log("里面有该属性");
+      } else {
+        console.log("没有该属性");
+      }
+      // ---------------------------------
+      //1. 定义一个字符串
+      var str = "abceofozyozzopp";
+
+      //2.定义一个空对象
+      var o = {};
+      // 3.遍历字符串
+      for (var i = 0; i < str.length; i++) {
+        var chars = str.charAt(i);
+        //根据指数返回字符：遍历以下字符串：遍历之后的字符就会出现所有的字符
+        // 4.如果有字符串就加一
+        if (o[chars]) {
+          //chars字符串的每一个字符+1
+          o[chars]++;
+        }
+        //否则就是1(也就是说先变成1再行经查询增加)
+        else {
+          o[chars] = 1;
+        }
+      }
+      console.log(o);
+
+      // 2. 遍历对象
+      // 初始化字符串和数值的空对象;
+      var max = 0;
+      var ch = "";
+      // 遍历对象
+      for (var k in o) {
+        //k得到的是属性名
+        //o[k]:得到属性值
+        if (o[k] > max) {
+          max = o[k];
+          ch = k; //k只在for循环里有意义  所以赋值给一个变量
+        }
+      }
+      console.log(max);
+      console.log("最多的字符是" + ch);
+    </script>
+  </head>
+  <body></body>
+</html>

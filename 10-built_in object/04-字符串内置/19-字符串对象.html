@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      var str = "andy";
+      console.log(str.length); //4:告诉我们字符串有几个字符
+      //   对象有属性和方法：复杂数据类型
+      //   为什么字符串（简单数据类型）也有length属性
+
+      // 基本包装类型：简单数据类型包装成复杂数据类型
+      //1. 简单数据类型包装为复杂数据类型
+      var temp = new String("andy");
+      //   2.把临时变量的值给str
+      str = temp;
+      //   3.销毁临时变量
+      temp = null;
+    </script>
+  </head>
+  <body></body>
+</html>

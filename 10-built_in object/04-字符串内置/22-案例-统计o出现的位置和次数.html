@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // 核心算法：先查找第一个o出现的位置
+      // 然后只要indexOf的结果不是-1就继续往后查找
+      //因为indexOf只能查找到第一个，所以后面的查找，利用第二个参数，index索引加1，从而继续查找
+      // 1.有一个字符串
+      var str = "oabcoefoxyozzopp";
+      // 2.查找第一个o并定义到新的变量
+      var index = str.indexOf("o");
+      // 一共出现几次：定义次数一开始是0
+      var num = 0;
+      // 3.while循环有没有出现:只要是字符串元素就一直循环
+      while (index !== -1) {
+        // 4.依次查到的索引位置，查到一个出现次数+1
+        console.log(index);
+        num++;
+        //5. 查找除去前面索引剩余部分
+        index = str.indexOf("o", index + 1);
+        //index=6再打印出来
+      }
+      console.log("o出现的次数是" + num);
+    </script>
+  </head>
+  <body></body>
+</html>
