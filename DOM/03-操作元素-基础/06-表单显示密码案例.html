@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        position: relative;
+        width: 400px;
+        border: 1px solid #ccc;
+        margin: 100px auto;
+      }
+      .box input {
+        width: 370px;
+        height: 30px;
+        padding-left: 20px;
+        /* 在设置好定位之后清除input的外边框 */
+        outline: none;
+        border: 0;
+      }
+
+      .box img {
+        /* 图片定位 */
+        position: absolute;
+        top: 2px;
+        right: 10px;
+        width: 24px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 
+        1.核心思路：眼睛按钮，把密码类类型改为文本框就可以看见
+        2.一个按钮两个状态，点击一次切换为文本框，继续点击切换为密码框
+        3.算法：flag变量判断：1：文本框、0：密码框
+     -->
+    <div class="box">
+      <label for="">
+        <img src="../images/close.png" alt="" id="eye" />
+      </label>
+      <input type="password" name="" id="pwd" />
+    </div>
+
+    <!-- ------------------------------------------------- -->
+    <script>
+      //   1. 获取事件（图片和input）
+      var eye = document.getElementById("eye");
+      var pwd = document.getElementById("pwd");
+      //   2.注册事件+处理程序
+      //   ---------------------------------------------------
+      //   添加重复事件判断值：
+      /* 注意默认的pwd的显示模式眼睛关闭;并且眼睛的图片也是关闭的 */
+      var flag = 0;
+      eye.onclick = function () {
+        // -------------------------------------------
+        // 分支语句据进行判断执行
+        // 如果是0执行密码可看见并对flag赋值
+        if (flag == 0) {
+          pwd.type = "text";
+          this.src = "../images/open.png";
+          //   点击一次之后进行一次变化
+          flag = 1;
+        } else {
+          // 否则执行密码看不见并对flag执行赋值
+          pwd.type = "password";
+          this.src = "../images/close.png";
+          flag = 0;
+        }
+      };
+      //   还原：需要算法（flag变量）
+    </script>
+  </body>
+</html>

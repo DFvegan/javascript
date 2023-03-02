@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>改变元属性：src</title>
+    <style>
+      img {
+        width: 400px;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="ldh">刘德华</button>
+    <button id="zxy">张学友</button><br />
+    <img src="../images/ldh.jpg" alt="" />
+
+    <script>
+      // 修改元素内容
+      //   按照事件三要素进行修改
+      //   1.获取对象（万能获取类名）
+      var ldh = document.querySelector("#ldh");
+      var zxy = document.querySelector("#zxy");
+      var img = document.querySelector("img");
+      //   2.注册事件
+      //   3.函数赋值完成时间程序
+      // 可以直接修改（无意义），也可以添加事件进行修改
+      // img.src = "../images/zxy.jpg";
+      zxy.onclick = function () {
+        img.src = "../images/zxy.jpg";
+        img.title = "谁是谁的谁";
+      };
+      ldh.onclick = function () {
+        img.src = "../images/ldh.jpg";
+        img.title = "刘德华的戏";
+      };
+    </script>
+  </body>
+</html>

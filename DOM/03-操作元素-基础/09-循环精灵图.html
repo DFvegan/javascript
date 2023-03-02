@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>循环精灵图案例</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      li {
+        list-style: none;
+      }
+      .box {
+        width: 250px;
+        margin: 100px auto;
+      }
+      .box li {
+        float: left;
+        width: 24px;
+        height: 24px;
+        background-color: pink;
+        margin: 15px;
+        background: url(../images/sprite.png);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+
+    <!-- ----------------- -->
+    <script>
+      // 竖着排列的精灵图
+      //1. 获取元素
+      var lis = document.querySelectorAll("li");
+      //   2.遍历
+      for (var i = 0; i < lis.length; i++) {
+        // 让索引号乘以44就是每个li的背景坐标
+        // 设置背景位置数值：定义变量
+        var index = i * 44;
+        // 设置背景位置时候注意位置是负值变量  还要注意位置的拼接
+        lis[i].style.backgroundPosition = "0 -" + index + "px";
+        // 注意位置是负值操作
+      }
+    </script>
+  </body>
+</html>

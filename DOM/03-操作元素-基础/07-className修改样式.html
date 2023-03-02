@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>操作元素修改样式</title>
+    <style>
+      .one {
+        width: 300px;
+        /* 共存的部分：高度 */
+        height: 200px;
+        background-color: blue;
+      }
+      /* 使用定义类名的方式进行整体操作修改元素样式 */
+      .change {
+        background-color: #999;
+        width: 250px;
+        color: #fff;
+        font-size: 25px;
+        margin-top: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="one">文本样式</div>
+    <script>
+      var div = document.querySelector("div");
+      div.onclick = function () {
+        // 注意里面的属性采用的是驼峰命名法
+        // 以下操作会直接把修改样式增加行内样式里面;
+        /*  this.style.backgroundColor = "#999";
+        this.style.width = "250px";
+        this.style.color = "#fff";
+        this.style.fontSize = "25px";
+        this.style.marginTop = "100px"; */
+        // 使用简易修改元素多个样式:当前htmll标签元素的类名改成change
+        // 特点：calssName会直接修改原来的类名：
+        // 如果要保留：赋值的内容就是在原先的类名基础上添加类名
+        this.className = "one change";
+      };
+    </script>
+  </body>
+</html>

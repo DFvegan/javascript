@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>h5新增获取元素（兼容ie9以上）</title>
+  </head>
+  <body>
+    <div class="box">盒子</div>
+    <div class="box">盒子2</div>
+    <div id="nav">
+      <ul>
+        <li>首页</li>
+        <li>产品</li>
+      </ul>
+    </div>
+    <script>
+      // 1.getElementsByClassName根据类名的某些元素
+      //返回获取相同类名元素的集合伪元素
+      var boxs = document.getElementsByClassName("box");
+      console.log(boxs);
+
+      //   -------------------------------------
+      //   2.万能选择器：返回第一个元素
+      // document.querySelector("选择器");
+      // 1.  类选择器：获取到全文档第一个box元素
+      var firstBox = document.querySelector(".box");
+      console.log(firstBox);
+      // 2. id选择器获取到全文档第一个nav元素
+      var nav = document.querySelector("#nav");
+      console.log(nav);
+      // 3.  标签选择器:获取到全文档第一个li元素
+      var lis = document.querySelector("li");
+      console.log(lis);
+
+      //   -------------------------------------
+      //   3.万能选择器：返回所有选择元素
+      // document.querySelectorAll();
+      //1. 类选择器
+      var allBox = document.querySelectorAll(".box");
+      console.log(allBox);
+      //2.id选择器
+      var allNav = document.querySelectorAll("#nav");
+      console.log(allNav);
+      //3.标签选择器
+      var alllis = document.querySelectorAll("li");
+      console.log(alllis);
+    </script>
+  </body>
+</html>

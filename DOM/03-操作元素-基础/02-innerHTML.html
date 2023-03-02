@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>改变元素内容</title>
+  </head>
+  <body>
+    <div></div>
+    <p>
+      文字
+      <span> 123</span>
+    </p>
+    <script>
+      //区分innerText和innerHTML
+
+      var div = document.querySelector("div");
+
+      //1.innerText
+      /* 
+        1. 不识别html标签：会把内容全部打印出来
+        2. 非标准（ie发起）  老版本火狐不可用
+      */
+      div.innerText = "<strong>今天是2023<strong>";
+
+      //2.innerHTML
+      /* 
+        1. 识别html标签：会把内容配合标签打印出来
+        2. w3c标准推荐
+      */
+      //   div.innerHTML = "<strong>今天是2023<strong>";
+
+      // -----------------------------
+      //   这两个属性是可以读写的，获取元素里面的内容
+      var p = document.querySelector("p");
+      // 读：
+      //去除空格和换行直接显示内容
+      console.log(p.innerText);
+
+      //保留空格和换行（显示内容里面包括空格和换行）
+      console.log(p.innerHTML);
+    </script>
+  </body>
+</html>

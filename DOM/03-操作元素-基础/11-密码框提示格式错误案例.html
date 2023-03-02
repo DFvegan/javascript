@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>密码框提示格式错误</title>
+    <style>
+      div {
+        width: 600px;
+        margin: 100px auto;
+      }
+      .message {
+        display: inline-block;
+        font-size: 12px;
+        color: #999;
+        background: url(../images/mess.png) no-repeat left center;
+        padding-left: 20px;
+      }
+      /* 单独颜色的地调整使用到类名样式修改 */
+      .wrong {
+        color: red;
+        background-image: url(../images/wrong.png);
+      }
+      .right {
+        color: green;
+        background-image: url(../images/right.png);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="register">
+      <input type="password" id="ipt" />
+      <p class="message">请输入6~16位密码</p>
+    </div>
+
+    <script>
+      // 首先判断事件是表单失去焦点blur
+      //   判断如果输入正确：信息绿色 +图标正确
+      //   如果输入错误：信息红色+图标错误
+      //   因为里面的样式修改较多：采用className
+
+      //   1.获取元素
+      var ipt = document.querySelector("#ipt");
+      var message = document.querySelector(".message");
+      //   2.注册事件 失去焦点
+      ipt.onblur = function () {
+        // 根据里面的长度进行判断
+
+        if (this.value.length < 6 || this.value.length > 16) {
+          message.className = "message wrong";
+        } else {
+          message.className = "message right";
+        }
+      };
+    </script>
+  </body>
+</html>

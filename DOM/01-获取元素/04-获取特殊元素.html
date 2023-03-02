@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>获取特殊元素</title>
+  </head>
+  <body>
+    <script>
+      // 1.获取body元素
+      var bodyEle = document.body;
+      console.log(bodyEle);
+      //   查看返回的元素对象
+      console.dir(bodyEle);
+
+      //   ------------------------
+      // 2. 获取html元素
+      //错误写法
+      //   var htmlEle = document.html;
+      //   正确写法
+      var htmlElem = document.documentElement;
+      console.log(htmlElem);
+    </script>
+  </body>
+</html>

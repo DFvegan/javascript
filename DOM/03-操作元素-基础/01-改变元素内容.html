@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>测试事件改变页面元素内容</title>
+    <style>
+      div,
+      p {
+        width: 300px;
+        height: 30px;
+        line-height: 30px;
+        color: #fff;
+        background-color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <button>显示当前系统时间</button>
+    <div>某个时间</div>
+    <p>不用添加事件样式直接刷新显示</p>
+
+    <script>
+      //当点击按钮  div里面的文字会发生变化
+      //   1.获取元素
+      var btn = document.querySelector("button");
+      var div = document.querySelector("div");
+      //   2.注册事件+执行函数
+      btn.onclick = function () {
+        // 直接调用函数
+        div.innerHTML = getDate();
+      };
+      // 封装函数
+      function getDate() {
+        var date = new Date();
+        var year = date.getFullYear();
+        var month = date.getMonth() + 1; //因为以下标形式存在  所以比平时少一个
+        var dates = date.getDate(); //日
+        var day = date.getDay(); //周
+        var arr = [
+          "星期日",
+          "星期一",
+          "星期二",
+          "星期三",
+          "星期四",
+          "星期五",
+          "星期六",
+        ];
+        return "今天是" + year + "年" + month + "月" + dates + "日" + arr[day];
+      }
+
+      // 元素可以不用添加事件:刷新就会改变页面内容
+      var p = document.querySelector("p");
+      //   可以直接使用innerHTML
+      p.innerHTML = getDate();
+    </script>
+  </body>
+</html>

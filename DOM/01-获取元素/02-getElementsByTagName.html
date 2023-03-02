@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>根据标签名获取元素生成对象方法</title>
+  </head>
+  <body>
+    <ul>
+      <li>选择时候1</li>
+      <!--    <li>选择时候2</li>
+      <li>选择时候3</li>
+      <li>选择时候4</li>
+      <li>选择时候5</li> -->
+    </ul>
+    <ul>
+      <li>你好</li>
+      <li>你好</li>
+      <li>你好</li>
+    </ul>
+    <!-- 一般使用id获取/在使用标签获取时候比较麻烦 -->
+    <ol id="ol">
+      <li>生僻字</li>
+      <li>生僻字</li>
+      <li>生僻字</li>
+      <li>生僻字</li>
+    </ol>
+
+    <!-- js-dom：根据标签名获取元素生成对象 -->
+    <script>
+      //1.返回的对象是获取过来元素对象的集合：以伪数组的形式进行存储
+      //   但是没有pop或者push等内置对象属性;
+      var lis = document.getElementsByTagName("ul");
+      console.log(lis);
+      //生成集合：类似于arguments伪数组
+      //所有的ul标签(两个)
+
+      //访问查看：ul的第一个
+      console.log(lis[0]);
+
+      // --------------------------------------------------------
+
+      //2.想要依次打印里面的元素对象那个采取遍历
+      for (var i = 0; i < lis.length; i++) {
+        console.log(lis[i]);
+      }
+      // 3.如果页面中只有一个可获取标签：返回的还是伪数组形式
+      // 4.如果页面中没有获取的标签：返回的是一个空的伪数组
+
+      // -----------------------------------------------------------
+
+      //   5.指定父元素进行获取子元素标签标签：生成伪数组
+      var ol = document.getElementsByTagName("ol");
+      //   console.log(ol.getElementsByTagName("li")); //报错：因为没有声名是第几个ol
+      //   父元素必须指明是哪一个元素对象：添加索引号方法
+      console.log(ol[0].getElementsByTagName("li"));
+
+      //   6.替换父元素标签获取：直接使用id名获取
+      //   先进性id获取父元素生成对象
+      var ol = document.getElementById("ol");
+      //   再进行父元素标签获取子元素
+      console.log(ol.getElementsByTagName("li"));
+    </script>
+  </body>
+</html>

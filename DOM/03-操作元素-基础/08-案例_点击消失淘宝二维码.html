@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>点击消失淘宝二维码</title>
+    <style>
+      .box {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        margin: 200px auto;
+        font-weight: 700;
+        font-size: 16px;
+        text-align: center;
+        line-height: 30px;
+        border: 1px solid orange;
+      }
+      .box img {
+        margin-top: 5px;
+      }
+      .close-btn {
+        position: absolute;
+        top: -1px;
+        left: -16px;
+        width: 14px;
+        height: 14px;
+        border: 1px solid #ccc;
+        line-height: 14px;
+        font-family: Arial, Helvetica, sans-serif;
+        /* 点击类型 */
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 大盒子里包含叉号和二维码图片 -->
+    <div class="box">
+      淘宝二维码
+      <img src="../images/tao.png" alt="" />
+      <i class="close-btn">×</i>
+    </div>
+
+    <!-- ---------------------------------------- -->
+    <script>
+      // 1.获取元素
+      var btn = document.querySelector(".close-btn");
+      var box = document.querySelector(".box");
+      //   2.注册事件 程序处理
+      btn.onclick = function () {
+        // 隐藏样式
+        box.style.display = "none";
+      };
+    </script>
+  </body>
+</html>

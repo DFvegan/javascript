@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>事件步骤</title>
+  </head>
+  <body>
+    <div>123</div>
+
+    <!-- 执行事件步骤：点击div-控制台输出-我被选择
+        1. 获取事件源
+        2.绑定事件  注册事件
+        3.赋值处理程序
+    -->
+    <script>
+      var div = document.querySelector("div");
+      div.onclick = function () {
+        console.log("我被选择");
+      };
+    </script>
+  </body>
+</html>
