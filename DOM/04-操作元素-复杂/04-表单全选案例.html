@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>表单全选案例</title>
+    <style>
+      .wrap table {
+        margin: 100px auto;
+      }
+      .wrap thead tr {
+        background-color: skyblue;
+      }
+      .wrap tbody tr {
+        background-color: #dfdfdf;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <table border="0" width="170px" height="200px">
+        <thead>
+          <tr>
+            <th>
+              <!-- 1.设置总的多选框并设置类名 -->
+              <input type="checkbox" id="j_cbAll" />
+            </th>
+            <th>商品</th>
+            <th>价钱</th>
+          </tr>
+        </thead>
+        <!-- 每一行设置多选框并设置id名 -->
+        <tbody id="j_tb">
+          <tr>
+            <td>
+              <input type="checkbox" />
+            </td>
+            <td>iPhone8</td>
+            <td>8000</td>
+          </tr>
+          <tr>
+            <td>
+              <input type="checkbox" />
+            </td>
+            <td>iPhone8</td>
+            <td>8000</td>
+          </tr>
+          <tr>
+            <td>
+              <input type="checkbox" />
+            </td>
+            <td>iPhone8</td>
+            <td>8000</td>
+          </tr>
+          <tr>
+            <td>
+              <input type="checkbox" />
+            </td>
+            <td>iPhone8</td>
+            <td>8000</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <script>
+      //选中上面则是全选  再点击就是全部取消
+      // 1.获取元素
+      //   获取全选框
+      var j_cbAll = document.getElementById("j_cbAll");
+      //   获取复选框
+      var j_tbs = document.getElementById("j_tb").getElementsByTagName("input");
+      // 2.绑定事件
+      //   上面影响下面的按钮
+      j_cbAll.onclick = function () {
+        // 注意默认点击有一个input值：checked
+        // this.checked返回true和false
+        for (var i = 0; i < j_tbs.length; i++) {
+          // 下面的点击框= 总点击框(赋值方)
+          j_tbs[i].checked = this.checked;
+        }
+      };
+
+      // --------------------------------------
+
+      //2.复选框需要全部选中,上面全选才能选中:给下面所有复选框绑定点击事件,每次点击,都要循环查看下面所有的复选框是否有没选中的，如果有，上面全选就不选中
+      for (var i = 0; i < j_tbs.length; i++) {
+        j_tbs[i].onclick = function () {
+          // 每次点击下面的复选框都要循环检查小按钮使得否都被选中
+          var flag = true;
+          //类似于排他:遍历所有选框判断里面是个否有没选中的
+          for (var i = 0; i < j_tbs.length; i++) {
+            if (!j_tbs[i].checked) {
+              // 作为排除：任何一个没有被选中就是未选中状态
+              flag = false;
+            }
+          }
+          // 总点击事件选中样式=小的点击样式：很具true返回值进行判断
+          j_cbAll.checked = flag;
+        };
+      }
+    </script>
+  </body>
+</html>

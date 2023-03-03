@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>百度换肤</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      ul {
+        list-style: none;
+      }
+      body {
+        background: url(./images/1.jpg) no-repeat 0 0/100%;
+      }
+      .box {
+        width: 410px;
+        height: 70px;
+        background-color: #fff;
+        margin: 100px auto;
+      }
+      .box li {
+        float: left;
+        margin: 0 1px;
+        /* 页面样式 */
+        cursor: pointer;
+        padding-top: 3px;
+      }
+      .box img {
+        /* 初始化图片尺寸大小 */
+        width: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="box">
+      <li><img src="./images/1.jpg" /></li>
+      <li><img src="./images/2.jpg" /></li>
+      <li><img src="./images/3.jpg" /></li>
+      <li><img src="./images/4.jpg" /></li>
+    </ul>
+
+    <script>
+      // 1.获取元素（增进写法：连续写）
+      var imgs = document.querySelector(".box").querySelectorAll("img");
+      console.log(imgs);
+      //   2.循环注册事件
+      for (var i = 0; i < imgs.length; i++) {
+        imgs[i].onclick = function () {
+          // this.src就是点击图片的路径
+          //把这个路径给body
+          document.body.style.backgroundImage = "url(" + this.src + ")";
+        };
+      }
+    </script>
+  </body>
+</html>

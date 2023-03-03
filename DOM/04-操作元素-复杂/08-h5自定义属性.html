@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 自定义属性：h5新增以date-开头 -->
+    <div getTime="20" data-index="2" data-list-name="jake"></div>
+    <script>
+      //1.获取元素
+      var div = document.querySelector("div");
+      //   console.log(div.getTime);
+      // 2.  获取元素属性
+      //       a. 获取自定义属性使用getAttribute
+      console.log(div.getAttribute("getTime"));
+      // 3.建立自定义属性
+      //   自定义属性之后会自动出现在元素处
+      div.setAttribute("data-time", "18");
+
+      //   4.获取自定义属性
+      //   a.旧方法
+      console.log(div.getAttribute("data-index"));
+      //h5新增获取自定义属性的方法
+      //   以下获得是元素属性集合（存放了所有以data开头的自定义属性）兼容问题：ie11以上才可以适应
+      console.log(div.dataset);
+      //   以下两种新方法获取属性值
+      // div.dataset.index = ""; //清除当前新的自定义属性值
+      div.dataset.index = "nihao";
+      console.log(div.dataset.index);
+      console.log(div.dataset["index"]);
+      //   如果自定义属性里有多个连接的单词，我们使用驼峰命名法
+      console.log(div.dataset.listName);
+    </script>
+  </body>
+</html>
