@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>节点介绍</title>
+  </head>
+  <body>
+    <!-- 1.直接使用操作元素获取元素太复杂：所以引出节点 -->
+    <!-- 2.节点可以更便利的利用父子兄关系进行获取元素操作 -->
+    <div>我是div</div>
+    <span>我是span</span>
+    <ul>
+      <li>我是li</li>
+      <li>我是li</li>
+      <li>我是li</li>
+      <li>我是li</li>
+    </ul>
+    <div class="box">
+      <div class="erweima">x</div>
+    </div>
+
+    <script>
+      // 以前获取元素：生成对象中包括节点类型、节点名称、节点属性
+      var box = document.querySelector(".box");
+      //   打印返回的元素对象  更方便查看对象里面的属性和方法
+      console.dir(box);
+    </script>
+  </body>
+</html>

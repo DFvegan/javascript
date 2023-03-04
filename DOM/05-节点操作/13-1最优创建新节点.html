@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>最优方式</title>
+  </head>
+  <body></body>
+
+  <script>
+    function fn() {
+      var dl = +new Date();
+      // 初始化空数组
+      var array = [];
+      // 依次在数组后面push一个元素（带有样式）
+      for (var i = 0; i < 1000; i++) {
+        array.push(
+          '<div style="width: 100px;height: 2px;border: 1px solid #000;"></div>'
+        );
+      }
+      // 数组转化成字符串
+      document.body.innerHTML = array.join("");
+      var d2 = +new Date();
+      console.log(d2 - dl);
+    }
+    fn();
+  </script>
+</html>

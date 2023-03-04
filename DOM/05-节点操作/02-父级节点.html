@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>父级节点</title>
+  </head>
+  <body>
+    <div>我是div</div>
+    <span>我是span</span>
+    <ul>
+      <li>我是li</li>
+      <li>我是li</li>
+      <li>我是li</li>
+      <li>我是li</li>
+    </ul>
+    <div class="box">
+      <div class="erweima">x</div>
+    </div>
+    <script>
+      // 1.以前获取元素(相关元素都得获取)
+      //   获取子元素 还得单独获取父元素：有时候还得牵扯类名或者id名的创建
+      var erweima = document.querySelector(".erweima");
+      //   var box = document.querySelector("box");
+      //2.节点获取：利用父子关系获取关键
+      //   注意：得到距离最近的父亲（亲爸爸）
+      console.log(erweima.parentNode);
+    </script>
+  </body>
+</html>

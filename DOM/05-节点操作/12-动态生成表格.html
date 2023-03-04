@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>动态生成表格</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      a {
+        text-decoration: none;
+        color: green;
+      }
+      table {
+        margin: 100px auto;
+        border-spacing: 0;
+        width: 400px;
+        border: 1px solid #000;
+        text-align: center;
+      }
+      thead tr {
+        background-color: #999;
+      }
+      table th,
+      table td {
+        border: 0.4px solid #000;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th>姓名</th>
+          <th>科目</th>
+          <th>成绩</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <!--  <tbody>
+        <tr>
+          <td>张某</td>
+          <td>JavaScript</td>
+          <td>100</td>
+          <td><a href="#">删除</a></td>
+        </tr>
+        <tr>
+          <td>屠某</td>
+          <td>JavaScript</td>
+          <td>90</td>
+          <td><a href="#">删除</a></td>
+        </tr>
+        <tr>
+          <td>任某</td>
+          <td>JavaScript</td>
+          <td>80</td>
+          <td><a href="#">删除</a></td>
+        </tr>
+        <tr>
+          <td>刘某</td>
+          <td>JavaScript</td>
+          <td>60</td>
+          <td><a href="#">删除</a></td>
+        </tr>
+      </tbody> -->
+      <tbody></tbody>
+    </table>
+    <script>
+      // 1.先准备数据
+      var dates = [
+        {
+          name: "刘某",
+          subject: "JacaScrit",
+          score: 100,
+        },
+        {
+          name: "任某",
+          subject: "JacaScrit",
+          score: 90,
+        },
+        {
+          name: "张某",
+          subject: "JacaScrit",
+          score: 80,
+        },
+        {
+          name: "屠某",
+          subject: "JacaScrit",
+          score: 70,
+        },
+        {
+          name: "张某",
+          subject: "JacaScrit",
+          score: 70,
+        },
+      ];
+      // 2.往tbody创建行：通过数组长度
+      var tbody = document.querySelector("tbody");
+      for (var i = 0; i < dates.length; i++) {
+        // 创建行
+        var tr = document.createElement("tr");
+        // 插入
+        tbody.appendChild(tr);
+        // 创建td:数值取决于对象个数
+        for (var k in dates[i]) {
+          // k得到属性名
+          // obj[k]:得到属性值
+          var td = document.createElement("td");
+          // 创建td的同时把属性值给td
+          td.innerHTML = dates[i][k];
+          // 插入
+          tr.appendChild(td);
+        }
+        // 重新创建删除单元格
+        var td = document.createElement("td");
+        td.innerHTML = "<a href='javascript:;'>删除</a>";
+        tr.appendChild(td);
+      }
+      //4.删除操作
+      var as = document.querySelectorAll("a");
+      for (var i = 0; i < as.length; i++) {
+        as[i].onclick = function () {
+          // 点击a删除所在行：node.removeChild(child)
+          //a是td的孩子，td又是tr的孩子
+          tbody.removeChild(this.parentNode.parentNode);
+        };
+      }
+    </script>
+  </body>
+</html>

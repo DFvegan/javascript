@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>下拉菜单</title>
+    <style>
+      ul li {
+        list-style: none;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      a {
+        text-decoration: none;
+        color: #000;
+      }
+      .nav {
+        width: 300px;
+        height: 150px;
+        margin: 100px auto;
+      }
+      .nav > li {
+        float: left;
+        line-height: 35px;
+        color: #333;
+      }
+      .nav > li a:hover {
+        /* 给链接也设置一个边距 */
+        display: block;
+        background-color: #999;
+      }
+      .nav > li a {
+        padding: 0 10px;
+      }
+
+      .nav ul li {
+        padding: 0 10px;
+        border-bottom: 1px solid orange;
+        border-left: 1px solid orange;
+        border-right: 1px solid orange;
+      }
+      .nav ul {
+        /* 初始化不显示 */
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="nav">
+      <li>
+        <a href="#">微博</a>
+        <ul>
+          <li>私信</li>
+          <li>评论</li>
+          <li>@我</li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">微博</a>
+        <ul>
+          <li>私信</li>
+          <li>评论</li>
+          <li>@我</li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">微博</a>
+        <ul>
+          <li>私信</li>
+          <li>评论</li>
+          <li>@我</li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">微博</a>
+        <ul>
+          <li>私信</li>
+          <li>评论</li>
+          <li>@我</li>
+        </ul>
+      </li>
+    </ul>
+    <script>
+      // 1.获取元素
+      var nav = document.querySelector(".nav");
+      var lis = nav.children; //获取四个小li
+      //   根据循环注册事件
+      for (var i = 0; i < lis.length; i++) {
+        lis[i].onmouseover = function () {
+          // li里面的第一个元素ul（包裹其他元素）就是第一个元素节点显示出来
+          this.children[1].style.display = "block";
+        };
+        lis[i].onmouseout = function () {
+          this.children[1].style.display = "none";
+        };
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>兄弟节点</title>
+  </head>
+  <body>
+    <i>你好</i>
+    <div>我是div</div>
+    <span>我是span</span>
+    <script>
+      var div = document.querySelector("div");
+      //   1.获得下一个兄弟节点
+      //   获得下一个兄弟（文本）节点
+      console.log(div.nextSibling); //#text
+      //   获得上一个兄弟（文本）节点
+      console.log(div.previousSibling); //#text
+      // 解决以上问题：直接获取元素节点的封装函数
+      function getNextElementSibling(element) {
+        var el = element;
+        while ((el = el.nextSibling)) {
+          if (el.nodeType === 1) {
+            return el;
+          }
+        }
+        return null;
+      }
+      // -----------------------------------
+
+      //   2.获得下一个兄弟元素节点（兼容问题）
+      //   下一个兄弟（元素）节点
+      console.log(div.nextElementSibling);
+      //   上一个兄弟（元素）节点
+      console.log(div.previousElementSibling);
+    </script>
+  </body>
+</html>

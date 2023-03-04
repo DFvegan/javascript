@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    function fn() {
+      // 获得当前时间
+      var d1 = +new Date();
+
+      var str = "";
+      for (var i = 0; i < 1000; i++) {
+        // 利用html创建元素并且添加好样式
+        document.body.innerHTML +=
+          '<div style="width: 100px;height: 2px;border: 1px solid #000;"></div>';
+      }
+      // 运行之后的当前时间
+      var d2 = +new Date();
+      console.log(d2 - d1);
+    }
+    fn();
+  </script>
+</html>

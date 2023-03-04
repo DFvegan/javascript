@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>子级节点</title>
+  </head>
+  <body>
+    <div>我是div</div>
+    <span>我是span</span>
+    <ul>
+      <li>我是li</li>
+      <li>我是li</li>
+      <li>我是li</li>
+      <li>我是li</li>
+    </ul>
+    <ol>
+      <li>我是li</li>
+      <li>我是li</li>
+      <li>我是li</li>
+      <li>我是li</li>
+    </ol>
+
+    <script>
+      var ul = document.querySelector("ul");
+      //   会输出所有的节点:包含文字和元素节点
+      console.log(ul.childNodes);
+      //   根据节点nodType可以查看：
+      /*
+       * 元素节点返回1
+       * 属性节点返回2
+       * 文本节点返回3
+       */
+      console.log(ul.childNodes[0].nodeType); //3
+
+      //    解决以上获取所有节点：只想获取ul里面的li
+      //   var ul = document.querySelector("ul");
+      //   for (var i = 0; i < ul.length; i++) {
+      //     if ((ul.childNodes[i].nodeType = 1)) {
+      //       // ul.childNodes[i]是元素节点
+      //       console.log(ul.childNodes[i]);
+      //     }
+      //   }
+
+      //   2.children直接获取所有的子元素节点
+      console.log(ul.children);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>次快</title>
+  </head>
+  <body></body>
+  <script>
+    function fn() {
+      // 获取未执行前时间
+      var d1 = +new Date();
+      for (var i = 0; i < 1000; i++) {
+        // 利用creatElement创建元素并且添加好样式
+        var div = document.createElement("div");
+        div.style.width = "100px";
+        div.style.height = "2px";
+        div.style.border = "1px solid red";
+        // 依次添加到body里面
+        document.body.appendChild(div);
+      }
+      // 获取执行后时间
+      var d2 = +new Date();
+      console.log(d2 - d1);
+    }
+    fn();
+  </script>
+</html>

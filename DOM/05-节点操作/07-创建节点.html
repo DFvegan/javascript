@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>创建节点</title>
+    <!-- 目的：例如评论案例需要创建新的节点 -->
+  </head>
+  <body>
+    <ul>
+      <li>123</li>
+    </ul>
+    <script>
+      // 1.在整个文档页面创建节点：元素节点
+      var li = document.createElement("li");
+      //   2.把节点放到父节点最后面
+      var ul = document.querySelector("ul");
+      ul.appendChild(li); //追加元素  类似于push
+      //   3.把创建节点放在父节点指定元素前面
+      //   创建节点
+      var lili = document.createElement("li");
+      ul.insertBefore(lili, ul.children[0]);
+      //4.想要添加一个新的元素：创建元素+添加元素
+    </script>
+  </body>
+</html>

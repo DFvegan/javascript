@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>子节点</title>
+  </head>
+  <body>
+    <ol>
+      <li>我是li1</li>
+      <li>我是li2</li>
+      <li>我是li3</li>
+      <li>我是li4</li>
+    </ol>
+
+    <script>
+      var ol = document.querySelector("ol");
+      console.log(ol.children);
+      //  1.获取第一个和最后一个子节点
+      console.log(ol.firstChild); //文本节点
+      console.log(ol.lastChild); //文本节点
+
+      // 2.获取第一个子元素节点
+      console.log(ol.firstElementChild);
+
+      //3.实际开发：注意写法无兼容性问题
+      //   利用获取到的父元素获得子节点元素
+      //   获取第一个子元素节点
+      console.log(ol.children[0]);
+      //   获取最后一个子元素节点
+      console.log(ol.children[ol.children.length - 1]);
+    </script>
+  </body>
+</html>
