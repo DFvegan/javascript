@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>事件对象</title>
+    <style>
+      div {
+        width: 100px;
+        height: 100px;
+        background-color: yellow;
+        text-align: center;
+        line-height: 100px;
+        margin: 100px auto;
+
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div>123</div>
+    <script>
+      var div = document.querySelector("div");
+      div.onclick = function (e) {
+        // 1.event就是一个事件对象  写到我们的监听函数的小括号里  当形参来看
+        // 2. 事件对象只有有了事件才会存在，是系统自动创建，不需要传递参数
+        // 3. 时间对象：一系列相关的数据的集合（鼠标：比如鼠标坐标，键盘事件：比如用户按下了哪个键）
+        // 4.事件对象可以自己命名： 一般是：event ent e
+        //5. ie6、7、8兼容问题通过 windoe.event
+        // console.log(event);
+        // console.log(window.event);
+        // 解决事件对象的兼容问题
+        e = e || window.event;
+        console.log(e);
+      };
+    </script>
+  </body>
+</html>

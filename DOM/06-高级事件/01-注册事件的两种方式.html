@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>注册事件的两种方式</title>
+  </head>
+  <body>
+    <button>传统注册事件</button>
+    <button>方法监听注册事件</button>
+    <button>不兼容的ie9</button>
+    <script>
+      // 体验传统注册事件的唯一性
+      var btns = document.querySelectorAll("button");
+      //   1.传统注册事件(后面的‘哈哈’会显示)
+      btns[0].onclick = function () {
+        alert("你好");
+      };
+      btns[0].onclick = function () {
+        alert("哈哈");
+      };
+      // ------------------
+      //   2.事件监听注册事件:
+      /* 1. 注意事件类型添加引号并且不要  on
+        2.同一个事件可以监听多个监听器（事件处理程序）
+        3.最后的执行效果是按照js语句依次执行
+      */
+      btns[1].addEventListener("click", function () {
+        alert("22");
+      });
+      btns[1].addEventListener("click", function () {
+        alert("33");
+      });
+
+      // -----------------
+      // 只在ie9以下可以显示出来
+      // 不兼容新的获取元素方法
+      btns[2].attachEvent("onclick", function () {
+        alert("老版本的监听事件");
+      });
+    </script>
+  </body>
+</html>

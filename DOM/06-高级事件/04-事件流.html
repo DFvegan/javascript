@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>事件流</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .father {
+        margin: 100px auto;
+        width: 300px;
+        height: 300px;
+        background-color: blue;
+        overflow: hidden;
+      }
+      .son {
+        margin: 75px;
+        width: 150px;
+        height: 150px;
+        background-color: yellow;
+        text-align: center;
+        line-height: 150px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="father">
+      <div class="son">son盒子</div>
+    </div>
+
+    <script>
+      // 注册多个事件时候的效果
+      // 事件流：作用在注册事件的第三个参数
+      // 1. js代码中只能执行捕获或者冒泡其中的一个阶段
+      // 2. onclick和attachEvent只能得到冒泡事件
+
+      //  ----------------------------------------------------
+
+      // 3.捕获阶段：监听事件设置：true则处于捕获阶段
+      // 捕获：document-> html -> body -> father -> son
+      var son = document.querySelector(".son");
+      son.addEventListener(
+        "click",
+        function () {
+          alert("son");
+        },
+        true
+      );
+      // 不论父亲的位置在哪里
+      var father = document.querySelector(".father");
+      father.addEventListener(
+        "click",
+        function () {
+          alert("father");
+        },
+        true
+      );
+      // 当前目标阶段
+      // ----------------------------------------------------
+      // 4.冒泡阶段：监听事件设置false或者空就是冒泡阶段
+      // 冒泡：son -> father -> body -> html -> document
+      var son = document.querySelector(".son");
+      son.addEventListener(
+        "click",
+        function () {
+          alert("son");
+        },
+        false
+      );
+      var father = document.querySelector(".father");
+      father.addEventListener(
+        "click",
+        function () {
+          alert("father");
+        },
+        false
+      );
+
+      document.addEventListener("click", function () {
+        alert("document");
+      });
+    </script>
+  </body>
+</html>

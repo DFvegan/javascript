@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button>老版本的监听事件</button>
+    <script>
+      // ie9之前的方式
+      var btn = document.querySelector("button");
+      btn.addEventListener("click", function () {
+        alert("11");
+      });
+
+      //   兼容需要封装代码
+      // 传统没有兼容性问题
+      /* function addEventListener(element, evenName, fn) {
+        // 判断当前浏览器是否支持addEventListener方法
+        if (element.addEventListener) {
+          element.addEventListener(evenName, fn); //i第三个参数默认就是false
+        } else if (element.attachEvent) {
+          element.attachEvent("on" + evenName, fn);
+        } else {
+          // 相当于element.onclick = fn
+          element["on" + evenName] = fn;
+        }
+      } */
+    </script>
+  </body>
+</html>

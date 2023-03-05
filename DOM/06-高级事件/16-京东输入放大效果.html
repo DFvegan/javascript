@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>放大效果</title>
+    <style>
+      .search {
+        position: relative;
+        width: 175px;
+        margin: 100px;
+      }
+      .con {
+        display: none;
+        position: absolute;
+        top: -40px;
+        width: 171px;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        box-shadow: 2px 4px rgba(0, 0, 0, 0.2);
+        padding: 5px 0;
+        font-size: 18px;
+        line-height: 20px;
+        color: #333;
+      }
+      /* 小三角效果 */
+      .con::before {
+        content: "";
+        width: 0;
+        height: 0;
+        border: 8px;
+        border-style: solid dashed dashed;
+        /* 透明 */
+        border-color: #999 transparent transparent;
+        /* 以上是三角形 */
+        position: absolute;
+        top: 31px;
+        left: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="search">
+      <!-- 小三角 -->
+      <div class="con"></div>
+      <input type="text" placeholder="请输入您的快递" class="jd" />
+    </div>
+    <script>
+      var jd_input = document.querySelector(".jd");
+      var con = document.querySelector(".con");
+      //   1.检测输入
+      jd_input.addEventListener("keyup", function () {
+        // console.log("输入内容");
+        if (this.value == "") {
+          con.style.display = "none";
+        } else {
+          con.style.display = "block";
+          con.innerHTML = this.value;
+        }
+      });
+      //   失去焦点隐藏con
+      jd_input.addEventListener("blur", function () {
+        con.style.display = "none";
+      });
+      //   获得焦点:盒子出现
+      jd_input.addEventListener("focus", function () {
+        if (this.value != "") {
+          con.style.display = "block";
+        }
+      });
+    </script>
+  </body>
+</html>

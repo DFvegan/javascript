@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>事件类型</title>
+  </head>
+  <body>
+    <div>123</div>
+    <a href="http://www.baidu.com">百度</a>
+    <!-- 对比阻止和未阻止的效果 -->
+    <form action="http://www.baidu.com">
+      <input type="submit" value="提交" name="sub" />
+    </form>
+    <script>
+      // 常见事件对象那的属性和方法
+      //   1. 返回事件类型
+      var div = document.querySelector("div");
+      div.addEventListener("click", fn); //直接返回事件类型
+      div.addEventListener("mouseover", fn); //直接返回事件类型
+      div.addEventListener("mouseout", fn); //直接返回事件类型
+
+      // 测试返回类型执行函数
+      function fn(e) {
+        console.log(e.type);
+      }
+      //   ---------------------------------------
+      //   2.阻止默认行为（事件）:相当于暂停某种行为
+      var a = document.querySelector("a");
+      a.addEventListener("click", function (e) {
+        // 高版本阻止
+        e.preventDefault();
+      });
+      //   传统注册阻止也可以实现
+      a.onclick = function (e) {
+        e.preventDefault(); //属性
+        //   低版本阻止
+        e.returnValue; //方法
+        // return false也可以阻止：无兼容：但是会导致后面代码无法执行；而且仅限于传统注册
+        return false; //不采用
+      };
+    </script>
+  </body>
+</html>

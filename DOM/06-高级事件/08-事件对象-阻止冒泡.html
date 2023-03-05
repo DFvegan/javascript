@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>阻止冒泡</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .father {
+        overflow: hidden;
+        width: 200px;
+        height: 200px;
+        background-color: blue;
+      }
+      .son {
+        width: 100px;
+        height: 100px;
+        background-color: pink;
+        margin: 50px auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="father">
+      <div class="son">1</div>
+    </div>
+    <script>
+      // 以下事件流是冒泡阶段
+      var father = document.querySelector(".father");
+      var son = document.querySelector(".son");
+      son.addEventListener("click", function (e) {
+        alert("son");
+        // 高版本
+        e.stopPropagation(); //不再往后传播
+        // 低版本ie
+        e.cancelBubble = true;
+        // 兼容处理
+        if (e && e.stopPropagation) {
+          e.stopPropagation();
+        } else {
+          window.event.cancelBubble = true;
+        }
+      });
+      // 但是点击father还是会继续冒泡
+      // 在father处在设置阻止冒泡
+      father.addEventListener("click", function (e) {
+        alert("father");
+        e.stopPropagation();
+      });
+      document.addEventListener("click", function (e) {
+        alert("document");
+      });
+    </script>
+  </body>
+</html>

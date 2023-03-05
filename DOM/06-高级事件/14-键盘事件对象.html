@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>键盘事件对象</title>
+  </head>
+  <body>
+    <script>
+      // 键盘事件对象中的keyCode属性可以得到相应键的ASCII码值
+      document.addEventListener("keyup", function (e) {
+        // 鼠标事件对象（浏览器不太支持）
+        // console.log(e);
+        console.log("展示：" + e.keyCode);
+        if (e.keyCode === 65) {
+          alert("您按下的是a键");
+        } else {
+          alert("按下的不是a键");
+        }
+      });
+      document.addEventListener("keypress", function (e) {
+        // 获得ASCII码值
+        // keyup和keydown:不区分大小写
+        // keypress:区分大小写
+        console.log("press:" + e.keyCode);
+      });
+    </script>
+  </body>
+</html>

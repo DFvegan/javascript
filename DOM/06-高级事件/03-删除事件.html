@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>解绑事件</title>
+    <style>
+      div {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+  </body>
+  <script>
+    var div = document.querySelectorAll("div");
+    // 1.注册点击事件
+    div[0].onclick = function () {
+      alert(11);
+      //   2.传统方式解绑事件
+      div[0].onclick = null;
+    };
+    // ----------------------------------------------------
+    // 1.新方式注册监听事件
+    div[1].addEventListener("click", fn); //里面的fn不需要调用（）
+    // 如果要删除要把监听器写在外面
+    function fn() {
+      alert(22);
+      //   2.新方法删除事件
+      div[1].removeEventListener("click", fn);
+    }
+    // -----------------------------------------------
+    //ie9以下删除注册事件
+    // 1.注册点击事件
+    div[2].attachEvent("onclick", fn1);
+    function fn1() {
+      alert(333);
+      //   2.解绑注册事件
+      div[2].detachEvent("onclick", fn1);
+    }
+
+    // 兼容封装代码
+    //   function removeEventListener(element, evenName, fn) {
+    //     // 判断当前浏览器是否支持removeEventListener方法
+    //     if (element.removeEventListener) {
+    //       element.removeEventListener(evenName, fn);//i第三个参数默认就是false
+
+    //     }else id(element.detachEvent){
+    //         element.detachEvent('on'+evenName,fn)
+    //     }else{
+    //         element['on'+evenName] = null;
+    //     }
+    //   }
+  </script>
+</html>
