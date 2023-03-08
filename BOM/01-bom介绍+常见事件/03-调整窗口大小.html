@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>调整窗口大小</title>
+    <style>
+      div {
+        width: 200px;
+        height: 200px;
+        background-color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      window.addEventListener("load", function () {
+        var div = document.querySelector("div");
+        // 意思是重置尺寸：就会触发处理程序
+
+        //   1.只要窗口大小发生变化就会触发这个是事件
+        //   2.经常利用这个事件完成响应式布局，window.innerWidth当前的屏幕宽度
+        window.addEventListener("resize", function () {
+          console.log("变化");
+          // 获取到窗口宽高值
+          console.log(window.innerWidth);
+          console.log(window.innerHeight);
+          if (window.innerWidth <= 800) {
+            div.style.display = "none";
+          } else {
+            div.style.display = "block";
+          }
+        });
+      });
+    </script>
+    <div></div>
+  </body>
+</html>

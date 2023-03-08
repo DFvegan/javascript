@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>定时器（定时炸弹）</title>
+  </head>
+  <body>
+    <script>
+      // setTimeout
+      // 语法规范 window.setTimeout(调用函数，延迟时间)
+      //   1.window再这个语句中可以省略
+      //   2. 延迟时间单位毫秒，可以省略单位
+      //   3.这个调用函数可以直接写函数，还可以写函数名
+      //   4.还可以换种写法写函数名： '函数名（）'，延迟时间（不提倡）
+
+      //   -----------------------------------------
+      //   setTimeout(function () {
+      //     console.log("时间到了");
+      //   }, 2000);
+      function calback() {
+        console.log("爆炸了");
+      }
+      //   5. 多个定时器时候：加不同的标识符（名字）
+      var time1 = setTimeout(calback, 3000);
+      var time2 = setTimeout(calback, 5000);
+    </script>
+  </body>
+</html>

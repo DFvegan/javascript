@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>定时关闭广告</title>
+  </head>
+  <body>
+    <img src="../images/ad.jpg" alt="" />
+    <script>
+      var img = document.querySelector("img");
+      // 声名：执行函数
+      function turn_off() {
+        img.style.display = "none";
+      }
+      // 定时器监听并执行:回调函数
+      setTimeout(turn_off, 5000);
+    </script>
+  </body>
+</html>

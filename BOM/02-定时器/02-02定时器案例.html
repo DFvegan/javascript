@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>定时器自动变化</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      div {
+        width: 300px;
+        margin: 100px 500px;
+      }
+      span {
+        float: left;
+        display: block;
+        width: 50px;
+        height: 50px;
+        background-color: black;
+        margin-right: 5px;
+        color: white;
+        text-align: center;
+        line-height: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <span class="hour">1</span>
+      <span class="minute">2</span>
+      <span class="second">3</span>
+    </div>
+    <script>
+      // 1.获取元素
+      var hour = document.querySelector(".hour");
+      var minute = document.querySelector(".minute");
+      var second = document.querySelector(".second");
+      var inputTime = +new Date("2023-03-05 01:00:00"); //返回的是用户输入的时间总的毫秒数
+
+      //   防止第一次调用出现卡顿：先进性调用一次倒计时函数
+      countDown();
+
+      //   2.开启定时器
+      setInterval(countDown, 1000);
+      //   3.声明函数：（倒计时效果）
+      function countDown() {
+        // a.计算距离结束总的的毫秒数
+        var nowTime = +new Date();
+        var times = (inputTime - nowTime) / 1000;
+        // 5.剩余时间
+        // 小时计算小时
+        var h = parseInt((times / 60 / 60) % 24);
+        h = h < 10 ? "0" + h : h;
+        hour.innerHTML = h;
+        var m = parseInt((times / 60) % 60);
+        m = m < 10 ? "0" + m : m;
+        minute.innerHTML = m;
+        var s = parseInt(times % 60);
+        s = s < 10 ? "0" + s : s;
+        second.innerHTML = s;
+      }
+    </script>
+  </body>
+</html>

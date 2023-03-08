@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>停止定时器</title>
+  </head>
+  <body>
+    <!-- 停止按钮 -->
+    <button>停止定时器</button>
+    <script>
+      var btn = document.querySelector("button");
+      // 获得的是dom接口执行dom事件停止定义好的bom定时器事件
+
+      // 1.声名定时器并添加名字
+      var timer = setTimeout(function () {
+        alert("爆炸了");
+      }, 3000);
+      btn.addEventListener("click", function () {
+        // 点击事件：暂停定时器时候直接调用定时器名字
+        clearTimeout(timer);
+      });
+    </script>
+  </body>
+</html>

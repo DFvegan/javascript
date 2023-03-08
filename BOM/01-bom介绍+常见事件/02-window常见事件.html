@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>window常见事件</title>
+  </head>
+  <body>
+    <button>点击</button>
+    <!-- 测试js置放位置 -->
+    <script>
+      // 意思：等页面全部加载完再来执行这个
+      //   有了这句话js可以指置放再任何地方
+      //   -----------------------------------------
+      //   1.传统注册：加载事件
+      window.onload = function () {
+        var btn = document.querySelector("button");
+        btn.addEventListener("click", function () {
+          alert("点击效果");
+        });
+      };
+      //冲突：传统注册多个执行最后一个
+      window.onload = function () {
+        var btn = document.querySelector("button");
+        btn.addEventListener("click", function () {
+          alert("后者效果");
+        });
+      };
+
+      //   ---------------------------
+      // 2.高版本注册方式：加载事件
+      window.addEventListener("load", function () {
+        var btn = document.querySelector("button");
+        btn.addEventListener("click", function () {
+          alert("起效果");
+        });
+      });
+      //   新版本不会出现多个监听事件冲突
+      window.addEventListener("load", function () {
+        var btn = document.querySelector("button");
+        btn.addEventListener("click", function () {
+          alert("起效果2");
+        });
+      });
+
+      // -------------------------------------------------------
+      // 3.DOM加载事件；dom加载完成就可以操作
+      document.addEventListener("DOMContentLoaded", function () {
+        alert("hellow");
+      });
+    </script>
+    <!-- 
+        1.dom是全部加载完毕，包含dom元素、图片、flash
+         css等
+        2.DOMcontenLoaded  是DOM 加载完毕，不包含图片flash css 等就可以执行  加载速度比load更快一些 
+     -->
+
+    <button>按钮</button>
+
+    <!--  
+    传统js置放位置
+     <script>
+      var btn = document.querySelector("button");
+      btn.addEventListener("click", function () {
+        alert("点击效果");
+      });
+    </script> -->
+  </body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>定时器（重复）</title>
+  </head>
+  <body>
+    <script>
+      // setInterval(回调函数，间隔事件);
+      setInterval(function () {
+        console.log("继续输出");
+      }, 1000);
+
+      /*
+      区别：
+      1.setTimeout：间隔时间只会回调函数
+      2.setInterval：间隔时间会重复执回调函数
+      */
+    </script>
+  </body>
+</html>

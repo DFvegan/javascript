@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>介绍</title>
+  </head>
+  <body>
+    <script>
+      //1.理解dom和bom
+      // dom中获取元素的api
+      //   document.querySelector();
+      //   bom中完整的获取元素的api
+      //   window.document.querySelector();
+      // dom的监听在bom中也同样适用
+
+      //   -------------------------------------------
+
+      //   2.全局变量和方法都会称为window中的属性
+      //   全局变量：自动变成window中的属性
+      var num = 10;
+      console.log(window.num); //10
+      //   函数变成window中的方法
+      function fn() {
+        console.log("1111");
+      }
+      window.fn();
+      //   3. window方法的完整写法
+      window.alert("222");
+      //   -------------------------------------
+      console.dir(window);
+    </script>
+  </body>
+</html>
