@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>同步异步的介绍</title>
+  </head>
+  <body>
+    <!-- 同步：执行顺序和代码排列顺序相同 -->
+    <!-- 异步：在执行某一个代码的同时（如果需要等待），可以执行其他代码 -->
+    <script>
+      console.log(1);
+      setTimeout(function () {
+        console.log(3);
+      }, 0); //此处需要等待放到异步任务队列里
+      console.log(2);
+    </script>
+  </body>
+</html>

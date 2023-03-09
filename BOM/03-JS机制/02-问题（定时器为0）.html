@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>讲解异步任务出现时候的执行过程</title>
+  </head>
+  <body>
+    <script>
+      console.log(1);
+      setTimeout(function () {
+        console.log(3);
+      }, 0);
+      // 先执行执行栈中的同步任务，接着执行异步任务里的会点函数（包含在事件或者定时器之中）
+      console.log(2);
+
+      // ------------------------------------------------------
+
+      // 多重异步任务的执行过程
+      /*
+       * 先执行执行栈中的同步任务
+       * 当出现异步任务的时候
+       * 发送到异步进程管理判断是不是触发到了事件
+       * 当触发到事件才会把异步任务排列到异步任务队列中
+       * 然后异步任务队列按顺序从最开始的依次排列到执行栈进行执行
+       */
+    </script>
+  </body>
+</html>
