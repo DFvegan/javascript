@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>location</title>
+  </head>
+  <body>
+    <button>点击</button>
+    <script>
+      var btn = document.querySelector("button");
+      btn.addEventListener("click", function () {
+        // 跳转页面效果:记录历史
+        // location.assign("http://www.baidu.com");
+        // 只是跳转，不记录浏览历史不能后退
+        // location.replace("http://www.baidu.com");
+        // 重新加载：相当于刷新
+        location.reload(); //参数加上true会直接强制刷新
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>判断用户的终端，实现跳转</title>
+  </head>
+  <body>
+    <!-- 判断是pc端页面还是移动端页面 -->
+    <script>
+      if (
+        // 查看打开页面的浏览器以及版本号（一般查看设备就可以判断跳转方向）
+        navigator.userAgent.match(
+          /(phone|pad|iphone|ipod|ios|iPad|Android|Mobile|BlackBerry|IEMoblie|MQQBrowser|JUC|Fennec|wosBrowser|Browser|BrowserNG|WebOS|Symbina|Windows Phone)/i
+        )
+      ) {
+        window.location.href = ""; //移动端
+      } else {
+        window.location.href = ""; //pc端
+      }
+    </script>
+  </body>
+</html>

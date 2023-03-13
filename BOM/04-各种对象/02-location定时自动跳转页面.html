@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>点击倒计时自动跳转页面</title>
+  </head>
+  <body>
+    <button>点击</button>
+    <div></div>
+    <script>
+      var btn = document.querySelector("button");
+      var div = document.querySelector("div");
+      //   点击跳转效果
+      btn.addEventListener("click", function () {
+        // 先定义好计时器
+        var timer = 5;
+        // 先调用封装函数：防止卡顿
+        one();
+        var two = setInterval(one, 1000);
+        function one() {
+          // 判断分支根据倒计时的值进行跳转
+          if (timer == 0) {
+            location.href = "http://www.baidu.com";
+          } else {
+            div.innerHTML = "您将在" + timer + "秒后跳转";
+            // 计时器：操作表达式
+            timer--;
+          }
+        }
+      });
+      //   倒计时跳转：设置时间
+    </script>
+  </body>
+</html>

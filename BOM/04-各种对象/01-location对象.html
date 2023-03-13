@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>location对象</title>
+  </head>
+  <body>
+    <!-- 主要是location.href -->
+    <!-- 主要是location.search -->
+    <button>点击</button>
+    <!-- 点击按钮得到当前的url -->
+    <script>
+      // 主要了解location.search和location.href
+      var btn = document.querySelector("button");
+      btn.addEventListener("click", function () {
+        console.log(window.location.href);
+        // location.href = "http://www.baidu.com";
+      });
+    </script>
+  </body>
+</html>
