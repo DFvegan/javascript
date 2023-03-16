@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>记住用户名</title>
+  </head>
+  <body>
+    <input type="text" id="username" />
+    <input type="checkbox" id="remember" />记住用户名
+
+    <script>
+      var username = document.querySelector("#username");
+      var remember = document.querySelector("#remember");
+      if (localStorage.getItem("username")) {
+        // 判断如果存在就赋值
+        username.value = localStorage.getItem("username");
+        remember.checked = true;
+      }
+      remember.addEventListener("change", function () {
+        // 如果按钮是点击状态就存储到本地
+        if (this.checked) {
+          localStorage.setItem("username", username.value);
+        } else {
+          // 否则删除本地存储
+          localStorage.removeItem("username");
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sessionStortage</title>
+  </head>
+  <body>
+    <input type="text" />
+    <button class="set">存储数据</button>
+    <button class="get">获取数据</button>
+    <button class="remove">删除数据</button>
+    <button class="del">清空所有数据</button>
+    <script>
+      var input = document.querySelector("input");
+      var set = document.querySelector(".set");
+      var get = document.querySelector(".get");
+      var remove = document.querySelector(".remove");
+      var del = document.querySelector(".del");
+      //   1.点击存储
+      set.addEventListener("click", function () {
+        // 点击之后存储表单值
+        var value = input.value;
+        sessionStorage.setItem("uname", value);
+        // 此处存储数据可以使用数组对象那个存储多个数据
+        sessionStorage.setItem("pwd", value);
+      });
+      //   2. 点击获取
+      get.addEventListener("click", function () {
+        // 点击之后获取表单元素
+        console.log(sessionStorage.getItem("uname"));
+      });
+      //   3.点击删除
+      remove.addEventListener("click", function () {
+        // 点击之后删除表单元素
+        sessionStorage.removeItem("uname");
+      });
+      //   4.清除数据
+      del.addEventListener("click", function () {
+        // 点击之后清除表单元素
+        sessionStorage.clear();
+      });
+    </script>
+  </body>
+</html>
