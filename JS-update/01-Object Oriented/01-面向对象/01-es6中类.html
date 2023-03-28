@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 1.创建类class 创建一个明星类
+      class Star {
+        constructor(uname, age) {
+          this.uname = uname;
+          this.age = age;
+        }
+        sing(song) {
+          console.log("唱" + song + "歌");
+          //可以直接在类中使用实例化的对象
+          console.log(this.uname + song);
+        }
+      }
+
+      // 2.利用类实例化创建对象
+      var ldh = new Star("刘德华", 18); //创建实例
+      var zxy = new Star("张学友", 19); //创建实例
+      console.log(ldh); //生成实例化对象
+      console.log(zxy.uname);
+      ldh.sing("冰雨");
+      //3. 类里面的所有函数不需要写function（直接语义化操作）
+      //4.多个函数或者方法之间不需要添加逗号
+    </script>
+  </body>
+</html>
