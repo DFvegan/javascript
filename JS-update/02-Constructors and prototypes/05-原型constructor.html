@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function Star(uname, age) {
+        this.uname = uname;
+        this.age = age;
+      }
+      /*   Star.prototype.sing = function () {
+        console.log("我爱唱歌");
+      };
+      Star.prototype.move = function () {
+        console.log("我爱电影");
+      }; */
+      //   此处使用函数原型对象添加方法
+      Star.prototype = {
+        // 手动指向原先的构造函数
+        constructor: Star,
+        sing: function () {
+          console.log("我爱唱歌");
+        },
+        move: function () {
+          console.log("我爱电影");
+        },
+      }; //此处的方法不会指向原先的构造函数
+      var ldh = new Star("刘德华", 18);
+      var zxy = new Star("张学友", 20);
+      console.log(ldh.__proto__.constructor);
+      console.log(Star.prototype.constructor);
+      //很多情况需要constructor手动
+    </script>
+  </body>
+</html>

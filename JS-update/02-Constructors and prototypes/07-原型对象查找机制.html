@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function Star(uname, age) {
+        this.uname = uname;
+        this.age = age;
+      }
+      Star.prototype.sing = function () {
+        console.log("我爱唱歌");
+      };
+      Star.prototype.sex = "男2";
+      //   Object.prototype.sex = "男3"; 构造函数原型对象创建属性
+      var ldh = new Star("刘德华", 18);
+      //1.当前对象实例如果能找到就会直接输出
+      ldh.sex = "男1";
+      //2.如果对象实例找不到，就会往上Star原型对象上进行查找
+      //3.如果原型对象找不到：就会往上找到Object原型对象进行查找
+      //4.如果Object原型对象都没有就会返回undefined
+      console.log(ldh.sex);
+      //   -----------------------------
+      //   对象原型存和构造函数原型存在就会返回对象原型（采取就近原则）
+    </script>
+  </body>
+</html>

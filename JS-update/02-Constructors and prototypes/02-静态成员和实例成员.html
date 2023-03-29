@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function Star(uname, age) {
+        this.uname = uname;
+        this.age = age;
+        this.sing = function () {
+          console.log("我会唱歌");
+        };
+      }
+      var ldh = new Star("刘德华", 18);
+      var zxy = new Star("张学友", 20);
+      //1. 实例成员：通过函数内部通过this添加的成员
+      //   实例成员只能通过实例化的对象来访问
+      console.log(ldh.uname); //正确
+      console.log(Star.uname); //undefined
+      //2. 静态成员在构造函数本身上添加的成员
+      //   静态成员只能能通过构造和拿书访问
+      Star.sex = "男"; //添加静态成员
+      console.log(Star.sex); //正确
+      console.log(ldh.sex); //undefined
+      //   ---------------构造函数的内存浪费
+      console.log(ldh.sing === zxy.sing); //fasle
+    </script>
+  </body>
+</html>
