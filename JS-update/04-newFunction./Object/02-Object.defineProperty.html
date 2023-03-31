@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Object.defineProperty()定义新属性或修改原有属性
+      var obj = {
+        id: 1,
+        pname: "小米",
+        price: 1999,
+      };
+      /* 1.以前的对象添加修改方式
+      obj.num = 1000;
+      console.log(obj.num); //新增对象属性
+      obj.price = 99;
+      console.log(obj.price); //修改对象属性 */
+      // -------------------------------------
+      //2. 利用对象方法进行修改
+      //如果没有属性名字就是添加
+      /* Object.defineProperty(obj, "num", {
+        value: 1000,
+      }); */
+      // 如果有就是修改
+      /* Object.defineProperty(obj, "price", {
+        value: 1000,
+      });
+      console.log(obj); */
+      // 判断是否可以重写
+      /*   Object.defineProperty(obj, "id", {
+        writable: false, //不允许修改属性值
+      });
+      obj.id = 2; //此处修改之展示还是1
+      console.log(obj); */
+      // -------------------
+      Object.defineProperty(obj, "address", {
+        value: "某某地址", //属性值
+        writable: false, //禁止重写
+        enumerable: false, //禁止枚举
+        configurable: false, // 不可以删除属性，禁止修改第三个参数里面的特性
+      });
+      var arr = Object.keys(obj); //此处遍历对象之后获取并存储到新的数组中
+      delete obj.address; //无法删除方法中添加属性的对象属性
+      delete obj.price; //可以删除默认的属性
+      console.log(obj); //address依然存在
+      console.log(arr); //此处无法打印出来adress
+      // ---------------------------------------------------
+      /*  Object.defineProperty(obj, "address", {
+        value: "某某地址", //属性值
+        writable: true,
+        enumerable: true,
+        configurable: true,
+      });
+      console.log(obj.address);
+      console.log(obj); */
+    </script>
+  </body>
+</html>

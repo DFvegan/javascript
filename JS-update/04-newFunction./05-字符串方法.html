@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>trim方法</title>
+  </head>
+  <body>
+    <input type="text" /> <button>点击</button>
+    <div></div>
+    <script>
+      // trim方法去除字符串两侧空格
+      //   但是不会影响中间的空格
+      var str = "  an  dy  ";
+      console.log(str); //会存在空白字符
+      var str1 = str.trim();
+      console.log(str1); //不出现空白字符
+      //   -------------------
+      var input = document.querySelector("input");
+      var btn = document.querySelector("button");
+      var div = document.querySelector("div");
+      btn.onclick = function () {
+        // 此处可以预处理：提前处理input里面的输入内容
+        var str2 = input.value.trim();
+        if (str2 === "") {
+          alert("请输入内容");
+        } else {
+          console.log(str2); //会输出包含空格,此时利用trim清除解决
+          div.innerHTML = str2;
+        }
+      };
+    </script>
+  </body>
+</html>

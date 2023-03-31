@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // filter过滤器筛选数组
+      var arr = [12, 66, 4, 88, 7, 3];
+      //   因为返回的是一个新数组，所以这里需要接收
+      var newarr = arr.filter(function (value, index, arr) {
+        // return value >= 20;
+        // 返回偶数
+        return value % 2 === 0;
+      });
+      console.log(newarr); //返回新数组
+    </script>
+  </body>
+</html>

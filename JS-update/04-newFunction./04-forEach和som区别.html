@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var arr = ["red", "green", "blue", "pink"];
+      //   1.forEach迭代
+      // arr.forEach(function (value) {
+      //   if (value === "green") {
+      //     console.log("找到该元素");
+      //     return true;
+      //   }
+      //   console.log(11); //打印三次：表示forEach没有终止迭代，会一直遍历完
+      // });
+      //   -------------------------
+      //   2.some迭代
+      // arr.some(function (value) {
+      //   if (value === "green") {
+      //     console.log("找到该元素");
+      //     return true; //说明找到该元素
+      //   }
+      //   console.log(11); //打印一次，表示迭代到指定元素就会终止迭代：效率更高
+      // });
+      //   --------------------
+      // 3.filter迭代
+      arr.filter(function (value) {
+        if (value === "green") {
+          console.log("找到该元素");
+          return true; //说明找到该元素
+        }
+        console.log(11); //也会一直迭代到整个数据完成
+      });
+    </script>
+  </body>
+</html>
