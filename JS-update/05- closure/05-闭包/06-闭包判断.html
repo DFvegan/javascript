@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>闭包</title>
+  </head>
+  <body>
+    <script>
+      //思考
+      /* var name = "The Window"; //这个名字挂在window之下
+      var object = {
+        name: "My Object",
+        getNameFunc: function () {
+          return function () {
+            return this.name;
+          };
+        },
+      };
+      console.log(object.getNameFunc()()); //The window(未产生闭包)
+      //此处的第二个（）相当于执行调用
+      //   ------------------------------------------------------------------
+      var f = getNameFunc();
+      //   类似于
+      var f = function () {
+        return this.name; //此处作为普通函数访问全局变量
+      };
+      f();
+      //   function(){this}()//立即执行函数：指向的还是window */
+      //-------------------------------------------------------
+      //产生闭包
+      var name = "The Window";
+      var object = {
+        name: "My Object",
+        getNameFunc: function () {
+          var that = this; //此时this指向的是object
+          return function () {
+            return that.name;
+          };
+        },
+      };
+      console.log(object.getNameFunc()()); //My Object
+      //-----------------------------------------------
+      /*  相当于
+      var f = object.getNameFunc();
+      var f = function () {
+        return that.name;
+      };
+      f(); */
+    </script>
+  </body>
+</html>

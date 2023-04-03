@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>闭包</title>
+  </head>
+  <body>
+    <script>
+      // 闭包（closure）
+      // 闭包指有权访问另外一个函数作用域中变量的函数
+      //闭包：fun这个函数作用域，访问了另外一个函数fn里面的局部变量num
+
+      function fn() {
+        var num = 10;
+        /* function fun() {
+          console.log(num); //此处fun函数可以使用fn函数中的变量就产生闭包
+        }
+        // fun();
+        //   fn外面的作用域可以访问内部的局部变量
+        return fun(); */
+        //直接实现返回值
+        return function () {
+          console.log(num);
+        };
+      }
+      var f = fn();
+      //   外部作用域访问内部的变量
+      f();
+      //   类似于：
+      /*   var f = function fun() {
+        console.log(num);
+      }; */
+    </script>
+  </body>
+</html>

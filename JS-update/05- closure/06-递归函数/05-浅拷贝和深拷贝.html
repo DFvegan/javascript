@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>浅拷贝（引出assign）</title>
+  </head>
+  <body>
+    <script>
+      var obj = {
+        id: 1,
+        name: "nihao",
+        // 对象深层数据
+        msg: {
+          age: 18,
+        },
+      };
+
+      //   以下实现对象拷贝
+      var o = {};
+      /*    for (var k in obj) {
+        //k是属性名，obj[k]是属性值
+        o[k] = obj[k];
+      }
+      o.msg.age = 20; //此处修改o对象中的对象那个数据中内容同样会修改拷贝源的数据
+      console.log(obj);
+      console.log(o); */
+
+      //   --------------------------
+      //ES6  浅拷贝语法糖
+      Object.assign(o, obj);
+      o.msg.age = 20; //此处修改o对象中的对象那个数据中内容同样会修改拷贝源的数据
+      console.log(obj);
+      console.log(o);
+    </script>
+  </body>
+</html>

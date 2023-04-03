@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>call方法</title>
+  </head>
+  <body>
+    <script>
+      // 改变this指向：call() 、 apply()、 bind()
+      //1.call（）
+      var o = {
+        name: "name",
+      };
+      function fn(a, b) {
+        console.log(this); //此处普通函数指向window
+        console.log(a + b);
+      }
+      //   fn.call(); //1.调用函数:打印window
+      fn.call(o, 1, 2); //2.使用call修改函数this指向，也可以传参作用在函数中
+      //   ----------------------------------------------------------------------
+      //   call主要可以实现继承
+      function Father(uname, age, sex) {
+        this.uname = uname;
+        this.age = age;
+        this.sex = sex;
+      }
+      function Son(uname, age, sex) {
+        Father.call(this, uname, age, sex);
+        //  核心语句 此处继承父类的构造函数属性
+      }
+      var str = new Son("刘德华", 18, "男");
+      console.log(str);
+    </script>
+  </body>
+</html>

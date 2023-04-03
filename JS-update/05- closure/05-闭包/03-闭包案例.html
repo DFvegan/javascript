@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>闭包-遍历点击（两种方式）</title>
+  </head>
+  <body>
+    <ul class="nav">
+      <li>你好</li>
+      <li>您好</li>
+      <li>尼号</li>
+      <li>拟好</li>
+    </ul>
+    <script>
+      //闭包应用-点击li输出当前li的索引号
+      //1.使用动态添加属性
+      var lis = document.querySelector(".nav").querySelectorAll("li");
+      for (var i = 0; i < lis.length; i++) {
+        lis[i].index = i;
+        lis[i].onclick = function () {
+          //   console.log(i);
+          console.log(this.index);
+        };
+      }
+      //2.利用闭包方式得到当前的li
+      //立即执行函数也成为小闭包
+      //因为里面的任何一个函数都可以使用它的i这个变量
+      for (var i = 0; i < lis.length; i++) {
+        // 此处利用循环创建的了四个立即执行函数
+        (function (i) {
+          lis[i].onclick = function () {
+            console.log(i);
+          };
+        })(i); //此时把循环变量作为实参传入给立即执行函数
+      }
+    </script>
+  </body>
+</html>

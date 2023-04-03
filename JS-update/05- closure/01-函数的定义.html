@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>函数的定义和调用</title>
+  </head>
+  <body>
+    <script>
+      //    函数的定义方式
+      //   1.自定义函数（命名函数）
+      function fn() {}
+
+      //    2.函数表达式
+      var fun = function () {};
+
+      //    3.new Function('参数1'，'参数2','函数体')方式调用（构造函数）
+      var f = new Function("a", "b", "console.log(a+b)");
+      f(1, 2); //此处调用可以直接输出
+
+      //     4. 所有的函数都是Function的实例
+      console.dir(f); //存在函数原型
+      console.log(f instanceof Object); //true
+    </script>
+  </body>
+</html>

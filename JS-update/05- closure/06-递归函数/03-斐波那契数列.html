@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>斐波那契</title>
+  </head>
+  <body>
+    <script>
+      // 数列规律：前两项之和等于后面一项的值：1，1，2，3，5，8，13，21，，，
+      //用户输入一个数字n就可以求出这个数字对应的兔子序列值
+      //只需要用户数入的n的前面两项就可以求出n对应的值
+      //(n-1,n-2):求出其两个值
+      function fb(n) {
+        // 停止方式
+        if (n === 1 || n === 2) {
+          return 1;
+        }
+        // 推导计算方式：前一项+前二项之后
+        return fb(n - 1) + fb(n - 2); //此处重新调用之后的实现步骤进行递归：得到1和1，因为以上条件上面说的1,2都返回的是1
+      }
+      console.log(fb(3));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>函数的调用</title>
+  </head>
+  <body>
+    <script>
+      // 函数的定义方式
+      //1.普通函数
+      function fn() {
+        console.log("你好");
+      }
+      fn();
+      fn.call();
+      //2.对象的方法
+      var o = {
+        sayHi: function () {
+          console.log("你好2");
+        },
+      };
+      o.sayHi();
+      //3.构造函数
+      function Star() {}
+      new Star(); //产生新的实例对象
+      //4.绑定事件函数
+      btn.onclick = function () {
+        console.log("你好3");
+      }; //点击的按钮就可以直接调用
+      //5.定时器函数
+      setInterval(function () {
+        console.log("你好4");
+      }, 1000); //定时器时间到了之后就会调用
+      //6.立即执行函数
+      (function () {
+        console.log("你好5");
+      })(); //立即执行函数是自动调用
+    </script>
+  </body>
+</html>

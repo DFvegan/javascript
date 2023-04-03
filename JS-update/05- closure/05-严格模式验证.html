@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      "use strict";
+      //1.变量名必须先声明再使用
+      /*  num = 10;
+      console.log(num); */
+      //   ----------------------------------
+      //2.不能随意删除已经声名好的变量
+      /*    var num = 10;
+      console.log(num);
+      delete num; */
+      //   ----------------------------------
+      //3.全局作用域下的函数this指向undefined
+      /*  function fn() {
+        console.log(this); //严格模式下是undefined，在非严格下就是window
+      }
+      fn(); */
+      //   ----------------------------------
+      //4.构造函数必须实例化
+      /*    //   使用new之后的this指向还是对象实例
+      function Star() {
+        this.sex = "男";
+      }
+      var ldh = new Star(); //普通模式没有new直接当普通函数调用，this指向的是window
+      //严格模式this指向的是undefined
+      console.log(ldh.sex); */
+      //   ----------------------------------
+      //5.定时器的函数this指向
+      /*    setTimeout(function () {
+        console.log(this); //指向的还是window
+      }, 2000); */
+      //   ----------------------------------
+      //6.函数参数不可重复
+      /* function fn(a, a) {
+        console.log(a + a);
+      }
+      fn(1, 2); */
+      //严格模式直接报错：因为两个参数重名
+      //普通模式可以执行但是执行错误
+      /*
+      a = 1;
+      a = 2;
+      下面的层叠上面的参数，所以a里面的值是2
+       */
+      //   ----------------------------------
+      //7.非函数代码块内禁止声名函数:if(){};for(){}
+      //   但是可以在函数内部进行调用
+      if(){
+        function fn(){}
+      }//错误
+      for(vari  =0;i<=5;i++){
+        function fn(){}
+      }//错误
+      function fn() {
+        function fn2(){}
+      }//正确
+    </script>
+  </body>
+</html>

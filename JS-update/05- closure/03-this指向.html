@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>this指向</title>
+  </head>
+  <body>
+    <button>点击</button>
+    <script>
+      var btn = document.querySelector("button");
+      // 函数的定义方式
+      //1.普通函数
+      function fn() {
+        console.log("普通函数的this" + this);
+      }
+      fn(); //window
+
+      //   fn.call();//window
+      //   -----------------------------------------
+      //2.对象的方法
+      var o = {
+        sayHi: function () {
+          console.log("对象方法的this" + this);
+        },
+      };
+      o.sayHi(); //对象o
+      //   ----------------------------------------
+      //3.构造函数
+      //原型对象this指向也是这个实例对象
+      function Star() {
+        console.log("构造函数的this" + this);
+      }
+      Star.prototype.sing = function () {};
+      new Star(); //产生新的实例对象//实例对象
+      // --------------------------------------------------
+      //4.绑定事件函数
+      btn.onclick = function () {
+        console.log("绑定事件的函数的this" + this);
+      }; //点击的按钮就可以直接调用//btn这个元素
+      //5.定时器函数
+      setInterval(function () {
+        console.log("定时器函数的this" + this);
+      }, 8000); //定时器时间到了之后就会调用//window
+      //6.立即执行函数
+      (function () {
+        console.log("立即执行函数的this" + this);
+      })(); //立即执行函数是自动调用//window
+    </script>
+  </body>
+</html>
