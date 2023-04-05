@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        width: 200px;
+        height: 300px;
+        border: 1px solid #000;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 敏感词留言过滤使用 -->
+    <textarea cols="30" rows="10"></textarea><button>提交</button>
+    <div></div>
+    <script>
+      // 字符串替换
+      //   var str = "nihao和nibuhai";
+      //   var newstr = str.replace("nihao", "haha");
+      //   var newstr = str.replace(/andy/, "haha");
+      //   console.log(newstr);
+      var text = document.querySelector("textarea");
+      var btn = document.querySelector("button");
+      var div = document.querySelector("div");
+      btn.onclick = function () {
+        div.innerHTML = text.value.replace(/激情|gay/g, "**");
+      };
+    </script>
+  </body>
+</html>

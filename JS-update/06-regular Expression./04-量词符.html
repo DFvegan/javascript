@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>量词符</title>
+  </head>
+  <body>
+    <script>
+      // 量词符：设定某个模式出现的次数
+      //意思就是让下面出现的字符出现几次
+      //   var reg = /^a$/; //当出现多个a也是错误
+
+      //* 相当于 >=0 可以出现0次或者很多次
+      /*    var reg = /^a*$/;
+      console.log(reg.test("")); //true
+      console.log(reg.test("a")); //true
+      console.log(reg.test("aa")); //true */
+
+      //+ 相当于>=1 可以出现1次或者很多次
+      /*    var reg = /^a+$/;
+      console.log(reg.test("")); //fasle
+      console.log(reg.test("a")); //true
+      console.log(reg.test("aa")); //true */
+
+      //？ 相当于 1||0
+      /*  var reg = /^a?$/;
+      console.log(reg.test("")); //true
+      console.log(reg.test("a")); //true
+      console.log(reg.test("aa")); //fasle */
+
+      // {3}   重复三次
+      /*  var reg = /^a{3}$/;
+      console.log(reg.test("")); //fasle
+      console.log(reg.test("a")); //fasle
+      console.log(reg.test("aaa")); //true */
+
+      // {3,}   大于等于3
+      /*   var reg = /^a{3,}$/;
+      console.log(reg.test("")); //fasle
+      console.log(reg.test("aaaaa")); //true
+      console.log(reg.test("aaa")); //true */
+
+      // {3,7}   大于等于3  小于等于7
+      var reg = /^a{3,7}$/;
+      console.log(reg.test("")); //fasle
+      console.log(reg.test("aaaaaaaaaaaaaaaaaaa")); //fasle
+      console.log(reg.test("aaa")); //true
+    </script>
+  </body>
+</html>
