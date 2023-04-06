@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 数组结构允许按照一一对应的搞关系从数组中提取
+      let ary = [1, 2, 3];
+      let [a, b, c] = ary;
+      console.log(a); //1
+      console.log(b); //2
+      console.log(c); //3
+      //变量>值
+      let [foo] = []; //undefined
+      let [bar, foa] = [1]; //bar:1  foa:undefined
+      console.log(bar);
+      console.log(foa);
+    </script>
+  </body>
+</html>

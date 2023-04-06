@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>1</div>
+    <div>4</div>
+    <div>3</div>
+    <div>6</div>
+    <div>5</div>
+    <div>2</div>
+    <script>
+      // 利用扩展运算符转换为真正的数组
+      let oDivs = document.getElementsByTagName("div");
+      //   此处的元素集合就是为数组
+      console.log(oDivs);
+      // 将伪数组转换为真实数组
+      var ary = [...oDivs];
+      // 之后可以使用真是数组的内置方法
+      ary.push("a");
+      console.log(ary);
+    </script>
+  </body>
+</html>

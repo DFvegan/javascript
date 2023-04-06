@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>let块级讲解作用</title>
+  </head>
+  <body>
+    <script>
+      // let关键字就是声名变量
+      //1.具有块级所用域
+      //2.防止循环变量成为全局变量
+      /* let a = 10;
+      if (true) {
+        let b = 20;
+        console.log(b); //可以输出
+        if (true) {
+          let c = 30;
+          console.log(c); //可以输出
+        }
+        console.log(c); //报错
+      }
+      console.log(a);
+      console.log(b); //报错 */
+      for (let i = 0; i < 2; i++) {}
+      console.log(i);
+      //var声名则是2：因为2才会终止循环
+      //let声名则是报错：因为无法获取块级内部的i
+    </script>
+  </body>
+</html>

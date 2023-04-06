@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const s1 = new Set();
+      //add添加方法
+      s1.add("a").add("b"); //可以链式调用
+      console.log(s1.size); //2
+      //delect删除方法返回布尔值)
+      const result = s1.delete("a");
+      console.log(s1.size); //1
+      console.log(result); //true
+      //has判断值是否是set成员
+      const result2 = s1.has("a");
+      console.log(result2); //因为已经删除所以返回false
+      //   clear清除set数据中的值
+      s1.clear();
+      console.log(s1.size); //0
+    </script>
+  </body>
+</html>

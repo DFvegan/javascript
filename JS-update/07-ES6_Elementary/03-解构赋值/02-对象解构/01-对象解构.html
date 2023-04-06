@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 对象解构允许使用变量名字匹配变量属性
+      let person = { name: "zhangsan", agr: 20 };
+      //   获取对象的方式{}字面量对象解构
+      //将上面的值赋值给以下对象属性
+      let { name, age } = person;
+      console.log(name); //zhangsan
+      console.log(age); //20
+    </script>
+  </body>
+</html>

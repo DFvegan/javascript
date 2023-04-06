@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const obj = { name: "张三" };
+      function fn() {
+        console.log(this); //指向obj
+        return () => {
+          console.log(this); //指向obj
+        };
+      }
+      const resFn = fn.call(obj); //将对象绑定给函数
+      resFn();
+    </script>
+  </body>
+</html>

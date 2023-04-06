@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var age = 100;
+      var obj = {
+        are: 20,
+        say: () => {
+          alert(this.age); //弹出undefined
+          //因为obj是对象没有产生作用域（在全局作用域）
+          //但是如果再去哪句设置age属,此处的this就会调用全局的age
+        },
+      };
+      obj.say();
+    </script>
+  </body>
+</html>

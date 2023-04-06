@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //扩展运算符直接拼接数组
+      /*   let ary1 = [1, 2, 3];
+      let ary2 = [4, 5, 6];
+      let ary3 = [...ary1, ...ary2];
+      console.log(...ary1, ...ary2); //1 2 3 4 5 6
+      console.log(ary3); //数组1 2 3 4 5 6 */
+      //扩展运算符搭配数组push方法把数组2添加到数组1之后
+      let ary1 = [1, 2, 3];
+      let ary2 = [4, 5, 6];
+      ary1.push(...ary2);
+      console.log(ary1); //直接保存一个添加之后数组
+    </script>
+  </body>
+</html>

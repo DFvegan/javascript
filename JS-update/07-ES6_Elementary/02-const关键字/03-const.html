@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>常量赋值后，值不可以修改</title>
+  </head>
+  <body>
+    <script>
+      // 常量声名之后的值是不可以更改的
+      //基本数据类型
+      /*      const PI = 3.14;
+      PI = 100; //Assignment to constant variable. */
+      //---------------------------------------------------
+      //复杂数据类型
+      //复杂数据类型里面的值是可以更改的
+      const ary = [100, 200];
+      ary[0] = 123;
+      console.log(ary);
+      //复杂数据类型可以修改内部值，但是不可以修改常量值的内存地址
+      ary = [1, 2];
+      console.log(ary); //Assignment to constant variable.
+    </script>
+  </body>
+</html>
