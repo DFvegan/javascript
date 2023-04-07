@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>获取到的对象转换（视频播放）</title>
+    <script src="./min-jQuery.js"></script>
+  </head>
+  <body>
+    <video src="./upload/mov.mp4" muted></video>
+    <script>
+      //   由于jq没有原生的一些属性和方法需要进行转换为原生js的DOM对象
+
+      // ----------------------
+      // 1.DOM对象转换为jq对象
+      //   （1）直接获取视频就是jq对象
+      //   $("video");
+      //   （2） 已经使用原生js获取过来DOM对象
+      var myvideo = document.querySelector("video");
+      //   $(myvideo); //直接用$转化
+      //   jQuery里没有play这个方法;
+
+      //   --------------------------------------
+
+      //   2. 转换为DOM对象
+      //   myvideo.play(); //DOM直接使用方法
+      $("video")[0].play(); //第一种：包装对象+遍历值
+      $("video").get(0).play(); //第二种：包装+获取遍历值（）
+    </script>
+  </body>
+</html>
