@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        width: 200px;
+        height: 200px;
+        background-color: blue;
+        transition: all 1s;
+      }
+      .con {
+        width: 400px;
+        height: 400px;
+        background-color: yellow;
+        transform: rotate(-360deg);
+      }
+    </style>
+    <script src="../min-jQuery.js"></script>
+  </head>
+  <body>
+    <div></div>
+    <script>
+      $(function () {
+        // 1.简单样式修改
+        // console.log($("div").css("width")); //返回原始值
+        // $("div").css("width", "300px"); //进行修改
+        // $("div").css(height, "300"); //报错  属性名必须添加引号
+        // $("div").css("width", 500); //无报错：如果后面的值 是数字可以不用引号也不用单位
+        // $("div").css({
+        //   width: 400,
+        //   height: 400,
+        //   backgroundColor: "red",
+        // });
+        // -----------------------------------
+        // 2.复杂样式类名方法修改
+        // (1)添加类:addClass
+        /*   $("div").addClass("con");
+        // (1)添删除类:removeClass
+        $("div").removeClass("con");
+        // (1)切换类:toggleClass
+        $("div").toggleClass("con"); */
+        // -----------------------
+        // 3.点击效果
+        $("div").click(function () {
+          $(this).addClass("con");
+        });
+        $("div").mouseout(function () {
+          $(this).removeClass("con");
+        });
+      });
+    </script>
+  </body>
+</html>

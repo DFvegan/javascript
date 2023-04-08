@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>类名获取修改不同</title>
+    <script src="../min-jQuery.js"></script>
+  </head>
+  <body>
+    <div class="one"></div>
+    <script>
+      // 1. 原生js会直接修改类名
+      // var one = document.querySelector("div");
+      // one.className = "two";
+      // console.log(one.className);//two
+
+      // -------------------------------
+      // 2.jQuery相当于在原先类名里新增一个类
+      $(function () {
+        $(".one").addClass("two"); //one  two
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../min-jQuery.js"></script>
+  </head>
+  <body>
+    <ol>
+      <li>我是ol的li</li>
+      <li>我是ol的li</li>
+      <li class="items">我是ol的li</li>
+      <li>我是ol的li</li>
+      <li>我是ol的li</li>
+      <li>我是ol的li</li>
+    </ol>
+    <ul>
+      <li>我是ul的li</li>
+      <li>我是ul的li</li>
+      <li>我是ul的li</li>
+      <li>我是ul的li</li>
+      <li>我是ul的li</li>
+      <li>我是ul的li</li>
+    </ul>
+    <div class="current">我有current</div>
+    <div>我没有</div>
+    <script>
+      $(function () {
+        //  1.兄弟元素
+        $("ol .items").siblings("li").css("color", "red"); //选择除了自己的所有兄弟
+        // 2.第n个元素
+        var index = 0;
+        // 利用选择器方式;
+        $("ul li:eq(2)").css("color", "red"); //此处不方便直接加变量
+        // 元素获取
+        $("ul li").eq(1).css("color", "blue"); //此处方便直接修改添加变量
+
+        // 3.判断是否有某个属性
+        console.log($("div:first").hasClass("current")); //返回布尔值
+      });
+    </script>
+  </body>
+</html>

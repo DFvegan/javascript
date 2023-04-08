@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../min-jQuery.js"></script>
+  </head>
+  <body>
+    <div>这里有几个字</div>
+    <div>这里有几个字</div>
+    <div>这里有几个字</div>
+    <div>这里有几个字</div>
+    <ul>
+      <li>还有几个字</li>
+      <li>还有几个字</li>
+      <li>还有几个字</li>
+    </ul>
+    <script>
+      $(function () {
+        // 1.获取四个div
+        console.log($("div"));
+        // 2.注意jquery不能使用style：此时给四个div设置背景色
+        $("div").css("background", "blue");
+        $("div").css("color", "white");
+        // 隐式迭代：把匹配到的所有元素进行遍历循环
+      });
+    </script>
+  </body>
+</html>

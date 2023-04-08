@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>筛选选择器重点</title>
+    <script src="../min-jQuery.js"></script>
+  </head>
+  <body>
+    <div class="yeye">
+      <div class="father">
+        <div class="son">儿子</div>
+      </div>
+    </div>
+    <div class="nav">
+      <p>我是谁</p>
+      <div>
+        <p>我是p</p>
+      </div>
+    </div>
+    <script>
+      $(function () {
+        // 1.查找父亲
+        console.log($(".son").parent()); //直接找到父级(亲爸爸)
+        // 2.查找孩子
+        $(".nav").children("p").css("color", "red"); //只获得亲儿子
+        $(".nav").find("p").css("color", "green"); //会获得所有子孙后代
+      });
+    </script>
+  </body>
+</html>

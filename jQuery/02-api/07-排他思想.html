@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>排他思想</title>
+    <script src="../min-jQuery.js"></script>
+  </head>
+  <body>
+    <button>点击</button>
+    <button>点击</button>
+    <button>点击</button>
+    <button>点击</button>
+    <button>点击</button>
+    <button>点击</button>
+    <button>点击</button>
+  </body>
+  <script>
+    $(function () {
+      // 隐式迭代（给所有按钮都绑定点击事件）
+      $("button").click(function () {
+        // 1.当前的元素变换背景颜色
+        $(this).css("background", "red");
+        // 2.其余兄弟去掉背景颜色
+        $(this).siblings("button").css("background", "");
+      });
+    });
+  </script>
+</html>
