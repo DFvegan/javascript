@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>自定义动画</title>
+    <style>
+      div {
+        position: absolute;
+        left: 0;
+        width: 100px;
+        height: 300px;
+        background-color: blue;
+      }
+    </style>
+    <script src="../min-jQuery.js"></script>
+  </head>
+  <body>
+    <button>动起来</button>
+    <div></div>
+    <script>
+      $(function () {
+        // 动画前提就是定位：因为动画就是在动画的基础上进行调整左右值
+        $("button").click(function () {
+          $("div").animate(
+            {
+              left: 200,
+              top: 300,
+              opacity: 0.5,
+              width: 500,
+            },
+            500
+          );
+        });
+      });
+    </script>
+  </body>
+</html>
