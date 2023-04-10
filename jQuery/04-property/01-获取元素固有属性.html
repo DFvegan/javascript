@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../min-jQuery.js"></script>
+  </head>
+  <body>
+    <a href="https://www.baidu.com" title="获取属性"></a>
+    <input type="checkbox" name="" id="" checked />
+    <div index="1" data-index="5">我是div</div>
+    <!--  -->
+    <span></span>
+    <script>
+      $(function () {
+        // 1. prop获取添加默认属性值
+        console.log($("a").prop("href"));
+        console.log($("a").prop("title"));
+
+        $("a").prop("name", "你好");
+
+        console.log(
+          $("input").change(function () {
+            console.log($("input").prop("checked")); //返回布尔值
+          })
+        );
+        // ---------------------------------------------------------------
+        // 2.attr获取添加自定义属性
+        // console.log($("div").prop("index")); //无法获取
+        console.log($("div").attr("data-index")); //自定义属性
+        // -------------------------------------------------------------
+        // 3.数据存取data（）设个里面的数据是存放在元素的缓存里
+        $("span").data("uname", "anan"); //元素控制台都看不到
+        console.log($("span").data("uname"));
+        //   直接查看data开头的文件
+        console.log($("div").data("index")); //5 返回数字型
+      });
+    </script>
+  </body>
+</html>
