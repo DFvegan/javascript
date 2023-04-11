@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../min-jQuery.js"></script>
+  </head>
+  <body>
+    <div>
+      <span>内容</span>
+    </div>
+    <input type="text" value="请输入文本" />
+    <script>
+      $(function () {
+        // 1. html()获取设置元素
+        console.log($("div").html()); //得到div标签+内容
+        console.log($("div").html("123")); //设置div内容，也可在指定下标设置值
+        // 2.获取元素文本内容
+        console.log($("div").text()); //得到div内容
+        console.log($("div").text("你好")); //修改div内容
+        //  3. 获取表单值
+        console.log($("input").val()); //得到input设置的value内容
+        console.log($("input").val("你好")); //修改input的value内容
+      });
+    </script>
+  </body>
+</html>
