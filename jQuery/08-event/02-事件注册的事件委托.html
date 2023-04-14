@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>事件委托</title>
+    <script src="../min-jQuery.js"></script>
+  </head>
+  <body>
+    <ul>
+      <li>我爱学习</li>
+      <li>我爱学习</li>
+      <li>我爱学习</li>
+      <li>我爱学习</li>
+      <li>我爱学习</li>
+    </ul>
+    <script>
+      $(function () {
+        //优势：事件委托
+        // $("ul li").click();
+        $("ul").on("click", "li", function () {
+          alert(11);
+        });
+      });
+      //   click是绑定在ul身上，但是出发的对象是ul里面的小li
+    </script>
+  </body>
+</html>

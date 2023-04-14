@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      li {
+        list-style: none;
+      }
+      .box {
+        position: relative;
+        width: 600px;
+        /* height: 300px; */
+        border: 1px solid #000;
+        margin: 100px auto;
+      }
+      .txt {
+        margin: 20px;
+      }
+      ul {
+        width: 450px;
+        margin-left: 100px;
+        margin-bottom: 20px;
+      }
+      ul li {
+        line-height: 25px;
+        border-bottom: 1px dashed #000;
+        display: none;
+      }
+      input {
+        float: right;
+      }
+      ul li a {
+        float: right;
+      }
+    </style>
+    <script src="../min-jQuery.js"></script>
+    <script>
+      $(function () {
+        //1. 点击按钮，动态创建li，放入文本框的内容和删除按钮，并且添加到ul中
+        $(".btn").on("click", function () {
+          //动态创建
+          var li = $("<li></li>");
+          li.html($("textarea").val() + "<a href='javascript:;'>删除</a>");
+          $("ul").prepend(li); //添加在最前面
+          li.slideDown();
+        });
+        // 2.点击删除按钮，可以删除当前的微博留言li
+        // $("ul a").click(function () {
+        //   alert(11); //不会出现弹窗，因为原始注册事件不回给动态创建的元素注册绑定事件
+        // });
+        // on可以给动态创建的元素绑定事件
+        $("ul").on("click", "a", function () {
+          $(this)
+            .parent()
+            .slideUp(function () {
+              $(this).remove();
+            });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="box" id="weibo">
+      <span>微博发布</span>
+      <textarea class="txt" cols="60" rows="15"></textarea>
+      <button class="btn">发布</button>
+      <ul></ul>
+    </div>
+  </body>
+</html>

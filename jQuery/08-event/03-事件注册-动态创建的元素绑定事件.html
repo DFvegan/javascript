@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>动态创建的元素绑定事件</title>
+    <script src="../min-jQuery.js"></script>
+  </head>
+  <body>
+    <ol></ol>
+    <script>
+      $(function () {
+        // 优势创建元素绑定事件
+        // 以前
+        // $("ol li").click(function () {
+        //   alert(11);
+        // }); //无法给动态的li绑定事件
+        // 事件委托
+        $("ol").on("click", "li", function () {
+          alert(11);
+        });
+        // 事件动态创建绑定
+        var li = $("<li>创建的li</li>");
+        $("ol").append(li);
+      });
+    </script>
+  </body>
+</html>

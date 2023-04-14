@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        width: 100px;
+        height: 100px;
+        background-color: purple;
+      }
+      .current {
+        background-color: pink;
+      }
+    </style>
+    <script src="../min-jQuery.js"></script>
+  </head>
+  <body>
+    <div></div>
+    <script>
+      $(function () {
+        // 1.单个事件注册
+        // $("div").click(function () {
+        //   $(this).css("background", "red");
+        // });
+        // $("div").mouseover(function () {
+        //   $(this).css("background", "skyblue");
+        // });
+        /*   2.多个事件处理on()
+        多个事件执行不同的回调函数
+        on的括号里添加对象字面量 */
+        $("div").on({
+          mouseenter: function () {
+            $(this).css("background", "red");
+          },
+          click: function () {
+            $(this).css("background", "purple");
+          },
+          //   还可以添加多个事件在对象里面
+        });
+        // 多个事件执行相同的回调函数
+        $("div").on("mouseover mouseout", function () {
+          // 切换类名
+          $(this).toggleClass("current");
+        });
+      });
+    </script>
+  </body>
+</html>
