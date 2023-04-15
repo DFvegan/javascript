@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../min-jQuery.js"></script>
+    <script>
+      $(function () {
+        var targetObj = {
+          id: 0,
+          msg: {
+            sex: "男",
+          },
+        };
+        var obj = {
+          id: 1,
+          name: "anan",
+          msg: {
+            age: 18,
+          },
+        };
+        // 使用方式：$extend(target,obj)
+        // 1. 把obj拷贝给targetObj
+        $.extend(targetObj, obj);
+        console.log(targetObj);
+        //如果原来数据和克隆数据有相同的，会覆盖原来的数据
+        /*  targetObj.msg.age = 18;
+        console.log(obj); */
+        // 浅拷贝拷贝的是复杂数据类型的目标地址
+        // 2.深拷贝
+        $.extend(true, targetObj, obj);
+        console.log(targetObj);
+        targetObj.msg.age = 20; //拷贝对象的数据会覆盖原来的数据
+        console.log(obj);
+      });
+    </script>
+  </head>
+  <body></body>
+</html>

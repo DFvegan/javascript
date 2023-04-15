@@ -1,0 +1,174 @@
+/* 清除样式 */
+ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+a{
+    color: #666;
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: none;
+}
+body{
+    background-color: #f5f5f5;
+}
+/* container宽度进行手动调整 */
+@media screen and (min-width:1280px) {
+    .container{
+        width: 1280px;
+    }
+    
+}
+
+.container{
+    background-color: #fff;
+}
+header{
+    /* header权重没有bootstrap里面黎明权重高 */
+    padding-left: 0 !important;
+}
+.logo img{
+    /* width: 100%; */
+    /* 不想图片进行缩放效果 */
+    max-width: 100%;
+}
+ .logo{
+    background-color: #429ad9;
+}
+.logo span{
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    color: #fff;
+    font-size: 18px;
+    text-align: center;
+}
+/* 如果进入超小屏幕那么logo里面的图片就隐藏了 */
+/* 2.提前准备盒子：只在超小屏幕下显示 */
+.nav{
+    background-color: #eee;
+    border-bottom: 1px solid #ccc;
+}
+.nav a{
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    padding-left: 30px;
+    font-size: 16px;
+}
+.nav a::before{
+    vertical-align: middle;
+    padding-right: 5px;
+    /* margin-right: 5px; */
+}
+/* 当进入小屏幕之后  li是float进行横向排列 */
+@media screen and (max-width:991px) {
+    .nav li{
+        float: left;
+        width: 20%;
+    }
+    
+}
+/* 进入超小屏幕  字体会变小 */
+
+@media screen and (max-width:767px){
+    .nav li a{
+        font-size: 14px;
+        padding-left: 0;
+    }
+    article{
+        margin-top: 10px;
+    }
+    /* 当处于超小屏幕就是小视屏第一个占100%，其他站50% */
+    .news li:nth-child(1){
+        width: 100% !important;
+    }
+    .news li{
+        width: 50% !important;
+    }
+    .publish h3{
+        font-size: 14px;
+    }
+}
+
+.nav a:hover{
+    background-color: #fff;
+    color: #333;
+}
+.news li:first-child{
+    width: 50%;
+    height: 266px;
+    background-color: pink;
+}
+.news li:first-child p{
+    line-height: 41px;
+    font-size: 20px;
+    padding: 0 10px;
+}
+.news li{
+    position: relative;
+    float: left;
+    width: 25%;
+    height: 128px;
+    background-color: blue;
+    padding-right: 10px;
+    margin-bottom: 10px;
+}
+.news li a{
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: purple;
+    
+}
+.news li a img{
+    width: 100%;
+    height: 100%;
+}
+.news li a p{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 41px;
+    padding-top: 5px 10px;
+    background-color: rgba(0,0,0,.5);
+    font-size: 12px;
+    color: #fff;
+    /* 注意p有默认外边距 */
+    margin-bottom: 0;
+    
+}
+.publish{
+    border-top: 1px solid #ccc;
+}
+.publish .row{
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+}
+.pic{
+    margin-top: 10px;
+}
+.pic img{
+    width: 100%;
+}
+/* 右侧 */
+.banner img{
+    width: 100%;
+}
+.hot{
+    display: block;
+    margin-top: 20px;
+    padding: 0 20px 20px;
+    border: 1px solid #ccc;
+}
+.hot span{
+    border-right: 0;
+    margin-bottom: 10px;
+}
+.hot p{
+    padding-top: 10px;
+    font-size: 12px;
+}
