@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>初始vue</title>
+    <!-- 引入vue -->
+    <script type="text/javascript" src="../vue/vue.js"></script>
+  </head>
+  <body>
+    <!-- 
+        初始Vue
+        1.想让vue工作，必须创建一个vue实例，并且传入一个配置对象那个
+        2.root容器里面代码依然符合html规范，只不过插入一个特殊vue语法
+        3. root容器里的代码被称为【Vue模板】
+        4. Vue实例和容器一一对应
+        5.真实只有一个Vue实例，并且会配合组件一起使用
+        6.{{xxx}} 中的xx要写js表达式，并且xxx可以自动读取到data中得所有属性
+        7. 一旦data中的数据发生改变，那么模板（页面）中用到该数据地方也会自动更新
+
+        注意：区分js表达式和js代码（语句）
+        1. 表达式:一个表达式会生成一个值，可以在任何一个需要值得地方
+          （1）a
+          （2）a+b
+           (3) demo(1)
+           (4) x === y ? 'a' : 'b'
+        2. js语句
+             （1） if(){}
+             （2） for(){}
+     -->
+    <!-- 准备一个容器 -->
+    <!-- vue没有解析第二个容器 -->
+    <div id="root">
+      <!-- 插值：{{直接写存储的数据}}  分隔符 -->
+      <h1>Hello，{{name.toUpperCase()}} {{address}}</h1>
+    </div>
+    <div id="root2">
+      <!-- 插值：{{直接写存储的数据}}  分隔符 -->
+      <h1>Hello，{{name}} {{address}}</h1>
+    </div>
+
+    <script type="text/javascript">
+      //阻止vue 启动时候产生的生产提示
+      Vue.config.productionTip = false;
+      // -----------------------------------------------------
+      // 注意：报错：没有ico使用
+      // 防止一个ico图片到根目录，然后使用live server运行文件
+      // -----------------------------------
+      //创建vue实例(不用参数接收)
+      //只传一个参数：配置对象
+      new Vue({
+        el: "#root", //el用于指定当前的Vue实例为哪个容器服务，值通常为css选择器字符串
+        // el: document.getElementById("root"),//了解另一种写法
+        // 把容器里变化的数据交给vue实例进行保管
+        // data中用于存储数据供el所指向的容器使用，值我们先暂时写成一个对象
+        data: {
+          name: "qinghua",
+          address: "北京",
+        },
+      });
+      new Vue({
+        el: "#root2",
+        data: {
+          name: "华东师范",
+          address: "河北保定",
+        },
+      });
+    </script>
+  </body>
+</html>
