@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../vue/vue.js"></script>
+  </head>
+  <body>
+    <!-- data与el的两种写法:
+        1.el的两种写法：
+              （1）new的时候配置el属性
+              （2）先创建Vue实例，收通过v-$mount('#root')指向el的
+        2.data的两种写法：
+              （1）对象式
+              （2）函数式
+              如何选择：运用组件时候必须使用函数式
+        3.总要原则：
+            由Vue管理的函数，一定不要写箭头函数，一旦写了箭头函数，this就不再是Vue实例了
+   -->
+    <div id="root">
+      <h1>你好,{{name}}</h1>
+    </div>
+  </body>
+  <script type="text/javascript">
+    /*     Vue.config.productionTip = false; //阻止vue启动时候生成的生产提示
+    new Vue({}); //敲写起来麻烦 ：直接利用代码片段生成自动代码快捷生成*/
+
+    // el两种写法
+    Vue.config.productionTip = false;
+    /*  const vm = new Vue({
+      // el: "#root",//关联语句(第一种)
+
+      data: { name: "dragon-fly" },
+    });
+    vm.$mount("#root"); //关联语句（第二种）比较灵活 */
+    // --------------------------------------------------
+    Vue.config.production = false;
+    new Vue({
+      el: "#root",
+      // 1. data的第一种写法：对象式
+      // data: {
+      //   name: "dragon-fly",
+      // },
+      // 2.data的第二种写法：函数式（只有函数名函数式）必须存在返回值
+      data() {
+        //注意此处的对象里面写函数可以删除关键词
+        console.log("@@@@@@", this); //this指向实例对象（普通函数式子写法，不可以使用箭头函数）
+        return {
+          name: "dragon-fly",//必须使用返回值把返回值里内容给容器
+        };
+        // 此处的函数是vue进行调用
+      },
+    });
+  </script>
+</html>
