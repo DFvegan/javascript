@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>监听属性进行拼接</title>
+    <script src="../vue/vue.js"></script>
+  </head>
+  <body>
+    <!-- 
+      computed和watch的区别：
+          1.computed能完成的功能watch都可以完成
+          2. watch能完成的功能，computed不一定能完成，
+          例如：watch可以进行异步任务操作
+      重要的原则：
+          1. 所被Vue管理的函数，最好写成普通函数，这样this的指向才是vm或者组件实例对象。
+          2.所有不被Vue管理的函数（定时器回调函数，ajax回调函数，promise的回调函数），最好写成箭头函数，这样this的指向才是vm或组件实例对象
+
+     -->
+    <div id="root">
+      姓:<input type="text" v-model="firstName" />
+      <br />
+      名:<input type="text" v-model="lastName" />
+      <br />
+      全名:<span>{{fullName}}</span>
+    </div>
+  </body>
+  <script>
+    Vue.config.production = false;
+    const vm = new Vue({
+      el: "#root",
+      data: {
+        firstName: "张",
+        lastName: "三",
+        fullName: "张-三",
+      },
+
+      // 监视属性：拼接字符
+      // 既需要监视姓也需要监视名（繁琐）
+      // 优势：可以开启异步任务（计算属性不可以添加异步任务）
+      // 注意：添加定时器时候回调函数应该是箭头函数：普通函数this指向window，箭头函数会向上找this，指向的是vm
+      watch: {
+        firstName(val) {
+          setTimeout(() => {
+            console.log(this);
+            this.fullName = val + "-" + this.lastName;
+          }, 1000);
+        },
+        lastName(val) {
+          this.fullName = this.firstName + "-" + val;
+        },
+      },
+    });
+  </script>
+</html>

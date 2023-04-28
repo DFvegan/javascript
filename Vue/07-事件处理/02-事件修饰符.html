@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>事件修饰符</title>
+    <script src="../vue/vue.js"></script>
+    <style>
+      * {
+        margin-top: 20px;
+      }
+      .demo1 {
+        height: 60px;
+        background-color: pink;
+      }
+      .box1 {
+        padding: 5px;
+        background-color: skyblue;
+      }
+      .box2 {
+        background-color: orange;
+      }
+      .list {
+        width: 200px;
+        height: 200px;
+        background-color: orangered;
+        overflow: auto;
+        /* 移除自定隐藏 */
+      }
+      li {
+        height: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 
+        Vue中的事件修饰：
+        1. prevent：阻止默认事件
+        2. stop：阻止事件冒泡
+        3. once：事件只触发一次（常用）
+        4. capture：使用事件的捕获模式
+        5. self：只有event.target是当前操作元素时才触发事件
+        6. passive：事件的默认行为立即执行(比如滚轮执行无需等待回调执行就会执行事件)，无需等待事件回调执行完毕
+        7. 修饰符看可以连续写 
+     -->
+    <div id="root">
+      <h2>欢迎来到{{name}}</h2>
+      <!-- 阻止默认事件 -->
+      <a href="http://www.baidu.com" @click.prevent="showInfo">点击提示</a>
+      <!-- 阻止事件冒泡：使用在内层事件-->
+      <div class="demo1" @click="showInfo">
+        <button @click.stop="showInfo">点击提示</button>
+        <a href="http://www.baidu.com" @click.stop.prevent="showInfo"
+          >点击提示</a
+        >
+      </div>
+      <!-- 事件只触发一次 -->
+      <button @click.once="showInfo">点击提示</button>
+      <!-- 使用事件的捕获模式:使用在外层事件 -->
+      <div class="box1" @click.capture="showMsg(1)">
+        div1
+        <div class="box2" @click="showMsg(2)">div2</div>
+      </div>
+
+      <!-- 只有event.target是当前操作元素时才触发事件 -->
+      <div class="demo1" @click.self="showInfo">
+        <button @click="showInfo">点击提示</button>
+      </div>
+
+      <!-- 事件的默认行为立即执行：优先使用滚动（移动端使用） -->
+      <!-- scroll：（滚动条）滚动到最后位置就会停止 -->
+      <!-- wheel：（滚轮）鼠标滚动轮滚动:会一直触发 -->
+      <ul @wheel.passive="demo" class="list">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+      </ul>
+    </div>
+  </body>
+  <script>
+    Vue.config.production = false;
+    const vm = new Vue({
+      el: "#root",
+      data: {
+        name: "xue",
+      },
+      methods: {
+        showInfo(e) {
+          alert("同学你好");
+          //   e.stopPropagation(); //阻止事件冒泡
+          console.log(e.target);
+        },
+        showMsg(msg) {
+          console.log(msg);
+        },
+        demo() {
+          for (let i = 0; i < 10000; i++) {
+            console.log("#");
+          }
+          console.log("运行结束");
+        },
+      },
+    });
+  </script>
+</html>

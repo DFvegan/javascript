@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>methods实现</title>
+    <script src="../vue/vue.js"></script>
+  </head>
+  <body>
+    <div id="root">
+      姓:<input type="text" v-model="firstName" />
+      <br />
+      名:<input type="text" v-model="lastName" />
+      <br />
+      <!-- 插值语法中使用方法必须使用（） -->
+      全名:<span>{{fullName()}}</span> <br />
+      <!-- 以下体现插值语法的优势：缓存优势 -->
+      全名:<span>{{fullName()}}</span> <br />
+      全名:<span>{{fullName()}}</span> <br />
+      全名:<span>{{fullName()}}</span>
+    </div>
+  </body>
+  <script>
+    Vue.config.production = false;
+    const vm = new Vue({
+      el: "#root",
+      data: {
+        firstName: "张",
+        lastName: "三",
+      },
+      methods: {
+        fullName() {
+          // 以下输出语句证明：data数据修改之后函数重新调用(说明模板重新解析)
+          console.log("@-------------------");
+          return this.firstName + "-" + this.lastName;
+        },
+      },
+    });
+  </script>
+</html>

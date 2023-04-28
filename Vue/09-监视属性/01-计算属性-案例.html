@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../vue/vue.js"></script>
+  </head>
+  <body>
+    <!-- 创建容器 -->
+    <div id="root">
+      <h2>今天天气很{{info}}</h2>
+      <button @click="changeWeather">切换</button>
+      <!-- 绑定事件的时候:@yyy="xxx"  xxx可以写一些简单的执行语句-->
+      <!-- <button @click="isHot = !isHot">切换</button> -->
+    </div>
+  </body>
+  <script>
+    Vue.config.production = false;
+    const vm = new Vue({
+      el: "#root",
+      data: {
+        isHot: true,
+      },
+      // 方法执行取反布尔值
+      methods: {
+        // 简写到模板中
+        changeWeather() {
+          this.isHot = !this.isHot;
+        },
+      },
+      // 计算判断属性布尔值
+      computed: {
+        info() {
+          return this.isHot ? "炎热" : "凉爽";
+        },
+      },
+    });
+  </script>
+</html>

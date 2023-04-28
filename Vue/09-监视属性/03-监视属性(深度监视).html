@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>监视属性</title>
+    <script src="../vue/vue.js"></script>
+  </head>
+  <body>
+    <!-- 
+      深度监视：
+        1.vue中的watch默认不监测对象内部值的改变（一层）
+        2.配置deep：true可监测对象内部值的改变（多层）
+      配置：
+        1.vue自身可以检测对象内部值得改变，但是vue提供的watch默认不可以
+        2.使用watch时根据数据的具体结构，决定是否采用深度监测 
+     -->
+    <div id="root">
+      <h2>今天的天气很{{info}}</h2>
+      <button @click="changeWeather">切换天气</button>
+      <hr />
+      <h3>a的值是{{numbers.a}}</h3>
+      <button @click="numbers.a++">点击让我+1</button>
+      <h3>b的值是{{numbers.b}}</h3>
+      <button @click="numbers.b++">点击让我+1</button>
+      <!-- 此处使用新的对象：就更改了原先的地址值 -->
+      <button @click="numbers = {a:666,b:888}">彻底替换number</button>
+    </div>
+  </body>
+  <script>
+    Vue.config.production = false;
+    const vm = new Vue({
+      el: "#root",
+      data: {
+        isHot: true,
+        numbers: {
+          a: 1,
+          b: 1,
+        },
+      },
+      computed: {
+        info() {
+          return this.isHot ? "炎热" : "寒冷";
+        },
+      },
+      methods: {
+        changeWeather() {
+          this.isHot = !this.isHot;
+        },
+      },
+      watch: {
+        isHot: {
+          handler(newVlaue, oldValue) {
+            console.log("inHot被修改了", newVlaue, oldValue);
+          },
+        },
+
+        // 以下是多级结构进行监视
+        // 注意存在多个属性：所有的属性都添加到下main（太麻烦）
+        /*  "numbers.a": {
+          handler() {
+            console.log("a发生改变");
+          },
+        },
+        "numbers.b": {
+          handler() {
+            console.log("b发生改变");
+          },
+        }, */
+        // 此处检测的是整个对象（一个地址）：但是添加deep属性就不一样了
+        numbers: {
+          deep: true,
+          handler() {
+            console.log("numbers改变了");
+          },
+        },
+      },
+    });
+  </script>
+</html>

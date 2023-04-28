@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>事件的基本使用</title>
+    <script src="../vue/vue.js"></script>
+  </head>
+  <body>
+    <!-- 
+        事件的基本使用：
+            1.使用v-on:xxx或者@xxx绑定事件，其中xxx是事件名（通过列表排序知道也可以是自定义属性值）
+            2.事件的回调需要配合出现在methods对象中，最终会在vm上
+            3.methods中配置的函数，不需要使用箭头函数，否则this指向不是vm
+            4.methods中配置函数，都是Vue所管理的函数，this的指向是vm或组件实例对象
+            5.@click="demo"  和  @click="demo（$event）"效果一致,但是后者可以传参
+     -->
+
+    <!-- 准备容器 -->
+    <div id="root">
+      <h2>欢迎来到{{name}}</h2>
+      <!-- <button v-on:click="showInfo">点我提示信息</button> -->
+      <!-- 简写：v-on: 相当于@ -->
+      <button @click="showInfo1">点我提示信息</button>
+      <!-- 回调函数一般不需要（），需要传参使用（），但是不能使用event -->
+      <!-- ，隔开可以使用$获取事件对象 -->
+      <button @click="showInfo2(66,$event)">点我提示信息</button>
+    </div>
+  </body>
+  <script>
+    Vue.config.production = false;
+    /*
+    注意绑定事件的执行函数不能直接在script标签内声名（报错）
+    function showInfo() {
+      alert("你好");
+    } */
+    const vm = new Vue({
+      el: "#root",
+      data: {
+        // 获取数据时候主要是出现了数据代理
+        name: "云贵川",
+      },
+      methods: {
+        // 最后两个showInfo会出现在vm中：但是没有数据代理
+        showInfo1() {
+          alert("你好");
+          //   console.log(a, b, c, d);
+          //   console.log(this === vm); //普通函数此处的this指向的是vm
+          //   console.log(event.target.innerText);
+        },
+        // 如果使用箭头函数this会指向
+        /*  showInfo: (e) => {
+          console.log(this);
+        }, */
+        showInfo2(number, event) {
+          console.log(number, event);
+          alert("同学！！");
+        },
+      },
+    });
+  </script>
+</html>
