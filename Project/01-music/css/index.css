@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: #000;
+  color: #666;
+  text-align: center;
+}
+audio {
+  width: 450px;
+  margin: 30px;
+}
+.container {
+  height: 420px;
+  /* border: 1px solid #fff; */
+  overflow: hidden;
+}
+.container ul {
+  /* border: 1px solid #fff; */
+  transition: 0.2s;
+  list-style: none;
+  /* transition只针对数值类属性生效 */
+}
+.container li {
+  height: 30px;
+  line-height: 30px;
+  /* border: 1px solid #fff; */
+  /* 如果将li的过渡属性一直存在应该使用在li中 */
+  transition: 0.2s;
+}
+/* css提前处理样式，配合js出现逻辑判断时候的样式 */
+.container li.active {
+  color: #fff;
+  transform: scale(1.1);
+  /* font-size: ; 如果使用改变几何就会导致reflow*/
+  /* transition: 0.2s;次数设置过渡时候在消失时候不生效 */
+}
